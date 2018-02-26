@@ -38,12 +38,12 @@ SQL-POSTGRESQL
 3/5 - Presentation
 
 ### Links and Resources
-http://www1.nyc.gov/site/buildings/index.page
-http://a810-bisweb.nyc.gov/bisweb/ECBQueryByLocationServlet?requestid=0&allbin=3070426
-https://regex101.com/
-https://www.gitbook.com/book/kevinchisholm/basic-web-scraping-with-node-js-and-cheerio-js/details
-https://stackoverflow.com/
-https://www.w3schools.com/
+http://www1.nyc.gov/site/buildings/index.page  
+http://a810-bisweb.nyc.gov/bisweb/ECBQueryByLocationServlet?requestid=0&allbin=3070426  
+https://regex101.com/  
+https://www.gitbook.com/book/kevinchisholm/basic-web-scraping-with-node-js-and-cheerio-js/details  
+https://stackoverflow.com/  
+https://www.w3schools.com/  
 
 
 
