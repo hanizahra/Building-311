@@ -1,0 +1,57 @@
+{
+    "address": "84 WITHERS STREET",
+    "violations": "38",
+    "numComplaints": "16",
+    "complaints": {
+        "3138322": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000643914"
+        },
+        "3188188": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000780633"
+        },
+        "3234442": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000920926"
+        },
+        "3255287": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000994442"
+        },
+        "3255308": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000994498"
+        },
+        "3301622": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001158982"
+        },
+        "3419648": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001547791"
+        },
+        "3421212": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001552978"
+        },
+        "3427529": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001573400"
+        },
+        "3427530": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001573401"
+        },
+        "3435716": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001602438"
+        },
+        "3435718": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001602440"
+        },
+        "3487937": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001773610"
+        },
+        "3542380": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001936440"
+        },
+        "3547061": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0001950316"
+        },
+        "3611672": {
+            "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0002143200"
+        }
+    },
+    "propertyId": "3068248",
+    "floodZone": "This property is not located in an area that may be affected by Tidal Wetlands, Freshwater Wetlands, Coastal Erosion Hazard Area, or Special Flood Hazard Area.\n\t\t Click here for more information\n\t\t"
+}
