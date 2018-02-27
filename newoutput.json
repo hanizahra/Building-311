@@ -1,6 +1,7 @@
 {
-    "address": "Premises: 84 WITHERS STREET BROOKLYN",
-    "propertyId": "3068248",
+    "address": "84 WITHERS STREET",
+    "violations": "38",
+    "numComplaints": "16",
     "complaints": {
         "3138322": {
             "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0000643914"
@@ -50,5 +51,7 @@
         "3611672": {
             "link": "http://a810-bisweb.nyc.gov/bisweb/OverviewForComplaintServlet?requestid=2&vlcompdetlkey=0002143200"
         }
-    }
+    },
+    "propertyId": "3068248",
+    "floodZone": "This property is not located in an area that may be affected by Tidal Wetlands, Freshwater Wetlands, Coastal Erosion Hazard Area, or Special Flood Hazard Area.\n\t\t Click here for more information\n\t\t"
 }
