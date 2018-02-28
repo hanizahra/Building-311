@@ -152,6 +152,14 @@ function thirdPage(){
                     //     console.log('ahhhhhhhhhhhhhhhhh' +complaint);
                     // });
 
+                    //doesn't work
+                    // $($('center').eq(4).children().children().children().eq(1)).filter(function(){
+                    //     let data = $(this);
+                    //     date = data.text();
+
+                    //     json2.date = date;
+                    // });
+
                     $($('center').children().children().children().eq(3)).filter(function(){
                         let data = $(this);
                         status = data.text();
