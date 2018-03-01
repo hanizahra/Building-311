@@ -14,15 +14,29 @@ var json = { address : "", borough: "", zipcode: "", numViolations : "", numComp
 var complaintJson = {};
 const buildingModel = require('./models/buildingModel.js');
 
+// view config
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+
+//boroughs // 
+//Manhattan: 1
+//Bronx: 2
+//Brooklyn: 3
+//Queens: 4 
+//Staten Island: 5
 
 // address input - scraping for basic building info from NY DOB
-function firstPage(resolve){
+function firstPage(houseNum, houseStreet, houseBoro, resolve){
        console.log('first');
-        let houseNo = encodeURIComponent('269'); //$('#inputnumber').val()
-        let street = encodeURIComponent('Powers'); //$('#inputstreet').val()
-        let boro = 3;
-
+        let houseNo = encodeURIComponent(houseNum); //$('#inputnumber').val()
+        let street = encodeURIComponent(houseStreet); //$('#inputstreet').val()
+        let boro = houseBoro;
         let options = {
+
             url : 'http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro='+boro + "&houseno=" + houseNo + "&street=" + street,
             headers:  
             {
@@ -237,63 +251,85 @@ function scrapeComplaintPage(complaintLink)
 
 
 // the collective scrape
-app.get('/scrape', function(req, res, next) {
-    // res.render('index')
-        let promise = new Promise(function(resolve, reject) {
-           firstPage(resolve);
-        }).then(function(stuff) {
-            return secondPage(); 
-        }).then(function(stuff3) 
-        {
-            return new Promise(function(innerResolve, innerReject)
-            {
-                let promises = [];
-                Object.keys(json.complaints).map(function(complaintId, idx)
-                {
-                   promises.push(scrapeComplaintPage(json.complaints[complaintId].link));
-                }.bind(this));
+app.post('/scrape', function(req, res, next) {
 
-                Promise.all(promises).then(function(complaintObjects)
+    // res.render('index')
+    console.log('body inside SCRAPE', req.body);
+    let houseNum = req.body.houseNum
+    let houseStreet = req.body.houseStreet
+    let houseBoro = req.body.houseBoro
+    console.log('here is the houseBoro', houseBoro);
+
+    if (houseBoro === 'Manhattan' || (houseBoro === 'manhattan')) 
+        {houseBoro = 1};
+    if (houseBoro === 'Bronx' || (houseBoro === 'bronx')) 
+        {houseBoro = 2};
+    if (houseBoro === 'Brooklyn' || (houseBoro === 'brooklyn'))
+        {houseBoro = 3};
+    if (houseBoro === 'Queens' || (houseBoro === 'queens'))
+        {houseBoro = 4};
+    if (houseBoro === 'Staten Island' || (houseBoro === 'staten island') || (houseBoro === 'Staten island'))    
+        {houseBoro = 5};
+
+        console.log('houseBoro has now been changed to', houseBoro)
+            let promise = new Promise(function(resolve, reject) {
+
+               firstPage(houseNum, houseStreet, houseBoro, resolve);
+            }).then(function(stuff) {
+                return secondPage(); 
+            }).then(function(stuff3) 
+            {
+                return new Promise(function(innerResolve, innerReject)
                 {
-                    complaintObjects.map(function(complaintObject)
+                    let promises = [];
+                    Object.keys(json.complaints).map(function(complaintId, idx)
                     {
-                        complaintJson[complaintObject.complaintId] = complaintObject;
+                       promises.push(scrapeComplaintPage(json.complaints[complaintId].link));
                     }.bind(this));
-                    //console.log('complaintJson', complaintJson);
-                    innerResolve();
-                }.bind(this));
+
+                    Promise.all(promises).then(function(complaintObjects)
+                    {
+                        complaintObjects.map(function(complaintObject)
+                        {
+                            complaintJson[complaintObject.complaintId] = complaintObject;
+                        }.bind(this));
+                        //console.log('complaintJson', complaintJson);
+                        innerResolve();
+                    }.bind(this));
+                });
+                //return thirdPage();
+            }).then(function(stuff2) {
+                // writeToFile(); //outputs to JSON file in directory
+                //console.log('the json obj ->',json);
+                //buildingModel.insertBuildInfo(json);
+    console.log('complaintJson:', complaintJson);
+             Object.keys(complaintJson).map(function(complaintId)
+             {
+                buildingModel.insertComplaintInfo(complaintJson[complaintId]);
+                buildingModel.insertBuildInfo(json);
+             });
+                res.send('Check console.');
             });
-            //return thirdPage();
-        }).then(function(stuff2) {
-            // writeToFile(); //outputs to JSON file in directory
-            //console.log('the json obj ->',json);
-            //buildingModel.insertBuildInfo(json);
-console.log('complaintJson:', complaintJson);
-         Object.keys(complaintJson).map(function(complaintId)
-         {
-            buildingModel.insertComplaintInfo(complaintJson[complaintId]);
-            buildingModel.insertBuildInfo(json);
-         });
-            res.send('Check console.');
-        });
+    
 });
 
 
 
 
-
-// view config
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
 app.use('/buildings', buildingRouter);
 
 app.use('/', (req, res) => {
-    res.render('index')
+    res.render('index', {
+        message: "Enter a NY address",
+    })
 })
+
+// app.post('/', (req, res, next) => {
+//     const {houseNum, houseStreet, houseBoro} = req.body
+//     firstPage(houseNum, houseStreet, houseBoro) => {
+//         res.redirect('/buildings')
+//   }
+// })
 
 app.use(express.static('public'))
 

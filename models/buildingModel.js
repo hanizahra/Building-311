@@ -11,16 +11,16 @@ buildingModel.insertBuildInfo = function(json) {
 					VALUES ($[borough], $[zipcode], $[address], $[numViolations], $[numComplaints], $[complaints], $[propertyId], $[floodZone])`, json);
 };	
 
-buildingModel.insertComplaintInfo = function(json2) {
+buildingModel.insertComplaintInfo = function(complaintJson) {
 	console.log('attempting to send to database as well...')
-	console.log('json2 is: '+json2)
+	console.log('complaintJson is: '+complaintJson)
 
 	return db.one(`INSERT INTO complaintInfo (address, propertyId, complaintId, complaint, comment, timeDate, status, categoryCode, priority) 
-					VALUES ($[address], $[propertyId], $[complaintId], $[complaint], $[comment], $[timeDate], $[status], $[categoryCode], $[priority])`, json2);
+					VALUES ($[address], $[propertyId], $[complaintId], $[complaint], $[comment], $[timeDate], $[status], $[categoryCode], $[priority])`, complaintJson);
 };
 
 buildingModel.findAll = () => 
-	db.query('SELECT * FROM buildingInfo');
+	db.query('SELECT address, borough, zipcode, numComplaints, numViolations, floodZone FROM buildingInfo');
 
 // buildingModel.findAll = () => 
 // 	db.query('SELECT * FROM complaintInfo');

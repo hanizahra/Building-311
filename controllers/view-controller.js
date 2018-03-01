@@ -7,10 +7,17 @@ module.exports = {
   show406(err, req, res, next) {
     res.sendStatus(406);
   },
+
+  // getBuildings(req, res) {
+  //   res.render('/', {
+  //     message: "ok lets get a new building"
+  //   })
+  // },
+
   showBuildings(req, res) {
-    console.log('can you see me')
+    console.log('showBuildings in view controller running')
     res.render('buildings/building-info.ejs', {
-      message: "ok, this might work",
+      message: "Below are all the buildings",
       data: res.locals.buildings
     }); 
   },

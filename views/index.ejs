@@ -1,11 +1,26 @@
 <% include ./partials/boilerplate.ejs %>
 
-Index page
+<h1>Index page</h1>
 
 <div>
   <h1>NY Building Vet</h1>
-  <h2><%=  %></h2>
+  <h2><%= message %></h2>
   <h3><%=  %></h3>
 </div>
+<form action="/scrape" method="post">
+	<label>
+		<input type="text" name="houseNum">
+		<p>Number</p>
+	</label>
+	<label>
+		<input type="text" name="houseStreet">
+		<p>Street</p>
+	</label>
+	<label>
+		<input type="text" name="houseBoro">
+		<p>Borough</p>
+	</label>
+	<input type="submit" name="submit">
+</form>
 
 <% include ./partials/footer.ejs %>

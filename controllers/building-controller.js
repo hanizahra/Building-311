@@ -2,7 +2,7 @@ const buildingDB = require('../models/buildingModel');
 const buildingController = {};
 
 buildingController.index = (req, res, next) => {
-		console.log('getting all buildings info')
+		console.log('getting all basic buildings info')
 		buildingDB.findAll()
 		.then((buildings) => {
 			// res.render('buildings/building-info', {
