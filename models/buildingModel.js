@@ -7,8 +7,8 @@ buildingModel.create = function(json) {
 	console.log('attempting to send to database...')
 	console.log('json is: '+json)
 
-	return db.one(`INSERT INTO buildingInfo (address, violations, numComplaints, complaints, propertyId, floodZone) 
-					VALUES ($[address], $[violations], $[numComplaints], $[complaints], $[propertyId], $[floodZone])`, json);
+	return db.one(`INSERT INTO buildingInfo (borough, zipcode, address, numViolations, numComplaints, complaints, propertyId, floodZone) 
+					VALUES ($[borough], $[zipcode], $[address], $[numViolations], $[numComplaints], $[complaints], $[propertyId], $[floodZone])`, json);
 };	
 
 buildingModel.findAll = () => 

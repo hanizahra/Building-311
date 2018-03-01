@@ -10,8 +10,8 @@ const mainUrl = 'http://a810-bisweb.nyc.gov/bisweb/';
 const path = require('path');
 const bodyParser = require('body-parser');
 const buildingRouter = require('./routes/building-router');
-var json = { address : "", violations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: ""};
-var json2 = {address: "", propertyId: "", complaint: "", comment: "", date: "", status: "", categoryCode: "", priority: ""};
+var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: ""};
+var json2 = {address: "", propertyId: "", complaintId: "", complaint: "", comment: "", timeDate: "", status: "", categoryCode: "", priority: ""};
 const buildingModel = require('./models/buildingModel.js');
 
 
@@ -36,7 +36,7 @@ function firstPage(resolve){
                 let $ = cheerio.load(html);
                
 
-                let address, violations, complaints;
+                let address, numViolations, complaints;
 
                 $('.maininfo').first().filter(function(){
                     let data = $(this);
@@ -45,11 +45,25 @@ function firstPage(resolve){
                     json.address = address;
                 });
 
+                $('.maininfo').first().next().filter(function(){
+                    let data = $(this);
+                    borough = data.text().replace(/[^a-zA-Z ]/g, "");            
+
+                    json.borough = borough;
+                });
+
+                $('.maininfo').first().next().filter(function(){
+                    let data = $(this);
+                    zipcode = data.text().replace(/[^0-9]/g, '');            
+
+                    json.zipcode = zipcode;
+                });
+
                 $($('a[href^="ActionsByLocationServlet"]').parent().parent().parent().children()[1]).filter(function(){
                     let data = $(this);
-                    violations = data.text();
+                    numViolations = data.text();
 
-                    json.violations = violations;
+                    json.numViolations = numViolations;
                 });
 
                 $($('a[href^="ComplaintsByAddressServlet"]').parent().parent().parent().children()[1]).filter(function(){
@@ -130,7 +144,7 @@ function thirdPage(){
 
                     $('.maininfo').first().filter(function(){
                         let data = $(this);
-                        address = data.text();            
+                        address = data.text().replace(/Complaint at/g,"");            
 
                         json2.address = address;
                     });
@@ -139,30 +153,55 @@ function thirdPage(){
                     $($('a[href^="PropertyProfileOverviewServlet"]')).filter(function(){
                         let data = $(this);
                         let propertyId = data.text().replace(/[^0-9]/g, '');
-                        console.log('propertyId, ', propertyId);
                         json2.propertyId = propertyId;
                     });  
 
-                    //doesn't work
-                    // $($('body').children().children().eq(5).children().children().eq(4).children().eq(1)).filter(function(){
-                    //     let data = $(this);
-                    //     complaint = data.text();
+                    $('body').children().children().children().children().eq(3).filter(function(){
+                        let data = $(this);
+                        let complaintId = data.text().replace(/[^0-9]/g, '');
+                        json2.complaintId = complaintId;
+                    }); 
 
-                    //     json2.complaint = complaint;
-                    //     console.log('ahhhhhhhhhhhhhhhhh' +complaint);
-                    // });
+                    // general complaint - needs regex to lose the number
+                    $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        complaint = data.text().replace(/[^a-zA-Z ]/g, "");
 
-                    //doesn't work
-                    // $($('center').eq(4).children().children().children().eq(1)).filter(function(){
-                    //     let data = $(this);
-                    //     date = data.text();
+                        json2.complaint = complaint;
+                    });
 
-                    //     json2.date = date;
-                    // });
+                    $('b:contains("Comments")').parent().parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        comment = data.text();
+
+                        json2.comment = comment;
+                    });
+
+                    $('b:contains("Received")').parent().parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        timeDate = data.text();
+
+                        json2.timeDate = timeDate;
+                    });
+
+                    $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        categoryCode = data.text().replace(/[^0-9]/g, '');
+
+                        json2.categoryCode = categoryCode;
+                    });
+
+                    //not working, in progress still
+                    $('b:contains("Priority")').parent().filter(function(){
+                        let data = $(this);
+                        priority = data.text().replace(/Priority:/i, '').replace(/[\s]/, '').replace(/\n\t\t\t/g, '').replace(/[\s]/, '');
+
+                        json2.priority = priority;
+                    });
 
                     $($('center').children().children().children().eq(3)).filter(function(){
                         let data = $(this);
-                        status = data.text();
+                        status = data.text().replace(/[^a-zA-Z ]/g, "").replace(/Overview for Complaint   /g,"");
 
                         json2.status = status;
                     });
