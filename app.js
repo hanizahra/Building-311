@@ -18,8 +18,8 @@ const buildingModel = require('./models/buildingModel.js');
 // address input - scraping for basic building info from NY DOB
 function firstPage(resolve){
        console.log('first');
-        let houseNo = encodeURIComponent('84'); //$('#inputnumber').val()
-        let street = encodeURIComponent('Withers'); //$('#inputstreet').val()
+        let houseNo = encodeURIComponent('159'); //$('#inputnumber').val()
+        let street = encodeURIComponent('South 2'); //$('#inputstreet').val()
         let boro = 3;
 
         let options = {
