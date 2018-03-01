@@ -82,7 +82,7 @@ function firstPage(resolve){
 
                 $($('a[href^="http://www1.nyc.gov/site/buildings/codes/wetlandsmaps.page"]').parent().parent().children()[0]).filter(function(){
                     let data = $(this);
-                    floodZone = data.text();
+                    floodZone = data.text().replace(/\n\t\t/g, "").replace(/Click here for more information/g, "");  
 
                     json.floodZone = floodZone;
                 });          
@@ -91,7 +91,7 @@ function firstPage(resolve){
         });
 }
 
-// scraping for complaint basic info
+// scraping for complaint links
 
 function secondPage(){
     // let binNum = encodeURIComponent('3068248');
@@ -126,7 +126,6 @@ function secondPage(){
 
 
 
-// var json2 = {address: "", propertyId: "", complaint: "", comment: "", date: "", status: "", categoryCode: "", priority: ""};
 // scraping for complaint details
 function scrapeComplaintPage(complaintLink)
 {
@@ -266,15 +265,15 @@ app.get('/scrape', function(req, res, next) {
             });
             //return thirdPage();
         }).then(function(stuff2) {
-            // writeToFile();
+            // writeToFile(); //outputs to JSON file in directory
             //console.log('the json obj ->',json);
             //buildingModel.insertBuildInfo(json);
 console.log('complaintJson:', complaintJson);
          Object.keys(complaintJson).map(function(complaintId)
          {
             buildingModel.insertComplaintInfo(complaintJson[complaintId]);
+            buildingModel.insertBuildInfo(json);
          });
-            
             res.send('Check console.');
         });
 });
