@@ -15,16 +15,27 @@ module.exports = {
   // },
 
   showBuildings(req, res) {
-    console.log('showBuildings in view controller running')
-    res.render('buildings/building-info.ejs', {
-      message: "Below are all the buildings",
+    console.log('showBuildings in view controller running');
+    res.render('buildings/building-queries.ejs', {
+      message: "Below are all the buildings: ",
       data: res.locals.buildings
     }); 
   },
-  // showOne(req, res) {
-  //   res.render('buildings/single-building', {
-  //     data: res.locals.json,
-  //   });
-  // },
+
+  showOne(req, res) {
+    console.log('showOne in view controller running');
+    res.render('buildings/building-info.ejs', {
+      message: "Here is just one building: ",
+      data: res.locals.building
+    }); 
+  },
+
+  showComplaints(req, res) {
+    console.log('showComplaints in view controller running');
+    res.render('buildings/building-complaints.ejs', {
+      message: "Here are the building complaints: ",
+      data: res.locals.complaints
+    });
+  }
 
 };

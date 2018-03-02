@@ -20,10 +20,13 @@ buildingModel.insertComplaintInfo = function(complaintJson) {
 };
 
 buildingModel.findAll = () => 
-	db.query('SELECT address, borough, zipcode, numComplaints, numViolations, floodZone FROM buildingInfo');
+	db.query('SELECT DISTINCT address, borough, zipcode FROM buildingInfo');
 
-// buildingModel.findAll = () => 
-// 	db.query('SELECT * FROM complaintInfo');
+buildingModel.findOne = () => 
+	db.query('SELECT address, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
+
+buildingModel.seeComplaints = (id) => 
+	db.query(`SELECT address, complaint , comment, propertyId FROM complaintInfo WHERE propertyId=$1`, id);
 
 
 // buildingModel.showAll = function() {

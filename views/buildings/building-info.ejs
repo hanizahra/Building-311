@@ -3,10 +3,15 @@
 <h1>building info page</h1>
 
 <div>
-  <h1><%=  %></h1>
   <h2><%= message %></h2>
   <h3><%=  %></h3>
-  <p><%= JSON.stringify(buildings) %></p>
+  <p><%= JSON.stringify(building) %></p>
 </div>
+<form action="/buildings/complaints" method="post">
+	<label>
+		<input type="text" name="propId" value="<%= JSON.stringify(building[0].propertyid) %>">
+	</label>
+	<input type="submit" name="submit" value="Complaints">
+</form>
 
 <% include ../partials/footer.ejs %>
