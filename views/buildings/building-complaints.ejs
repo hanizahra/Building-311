@@ -4,8 +4,22 @@
 
 <div>
   <h2><%= message %></h2>
-  <h3><%= JSON.stringify(complaints) %></h3>
+  <% let allComplaints = JSON.stringify(complaints[0]) %>
+  <h3><%= allComplaints %></h3>
   <p><%=  %></p>
 </div>
 
+<% for(var i=0; i<JSON.stringify(complaints.length); i++) {%>
+     <tr>
+       <%= JSON.stringify(complaints[i].address)%> <br><br>
+       <%= JSON.stringify(complaints[i].complaint)%> <br><br>
+       <%= JSON.stringify(complaints[i].comment)%> <br><br>
+     </tr> <br><br>
+<% } %>
+
+
 <% include ../partials/footer.ejs %>
+
+
+
+
