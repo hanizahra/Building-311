@@ -36,6 +36,13 @@ module.exports = {
       message: "Here are the building complaints: ",
       data: res.locals.complaints
     });
+  },
+
+  destroyQuery (req, res) {
+    console.log('destroyQuery in view controller ran');
+    res.render('buildings/building-queries', {
+      data: res.locals.building
+    });
   }
 
 };

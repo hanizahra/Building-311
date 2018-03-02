@@ -42,6 +42,22 @@ buildingController.allComplaints = (req, res, next) => {
 	.catch((err) => {
 		res.status(500).json(err)
 	})
+};
+
+buildingController.deleteQuery = (req, res, next) => {
+	propId = req.body.propId
+	buildingDB.destroy(propId)
+	.then((results) => {
+		res.json ({
+			message: 'Query has been deleted.'
+		})
+	})
+	.catch(err => {
+		res.status(500).json({
+			message: 'error',
+			error: err
+		})
+	})
 }
 
 module.exports = buildingController;

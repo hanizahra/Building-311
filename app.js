@@ -8,6 +8,7 @@ const pgp = require('pg-promise');
 const PORT = process.env.PORT || 3000;
 const mainUrl = 'http://a810-bisweb.nyc.gov/bisweb/';
 const path = require('path');
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const buildingRouter = require('./routes/building-router');
 var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: ""};

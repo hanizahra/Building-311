@@ -26,12 +26,11 @@ buildingModel.findOne = () =>
 	db.query('SELECT address, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
 
 buildingModel.seeComplaints = (id) => 
-	db.query(`SELECT address, complaint , comment, propertyId, status, categoryCode, priority FROM complaintInfo WHERE propertyId=$1`, id);
+	db.query(`SELECT address, timeDate, complaint , comment, propertyId, status, categoryCode, priority FROM complaintInfo WHERE propertyId=$1`, id);
 
-
-// buildingModel.showAll = function() {
-// 	return db.any('');
-// };
+buildingModel.destroy = (id) =>
+	db.none('DELETE FROM buildingInfo WHERE buildingInfo.propertyId =$1', id)
+	// db.none('DELETE FROM buildingInfo, complaintInfo FROM buildingInfo INNER JOIN complaintInfo WHERE buildingInfo.propertyId = complaintInfo.propertyId AND buildingInfo.propertyId =$1', id)
 
 
 module.exports = buildingModel

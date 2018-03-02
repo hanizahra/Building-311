@@ -5,7 +5,40 @@
 <div>
   <h2><%= message %></h2>
   <h3><%=  %></h3>
-  <p><%= JSON.stringify(buildings) %></p>
 </div>
+
+<% for(var i=0; i<JSON.stringify(buildings.length); i++) {%>
+     <tr>
+       <%= JSON.stringify(buildings[i].address).replace(/"/g,"")%> <br>
+       <%= JSON.stringify(buildings[i].borough).replace(/"/g,"")%> <br>
+       <%= JSON.stringify(buildings[i].zipcode).replace(/"/g,"")%> 
+
+       <form action="/buildings/complaints" method="post">
+			<label>
+				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+			</label>
+			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[0].numcomplaints)%>Complaints">
+		</form>
+
+		<form action="/buildings/violations" method="post">
+			<label>
+				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+			</label>
+			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[0].numviolations) %>Violations">
+		</form>
+
+		<form action="/buildings/queries/?_method=Delete  method="post">
+			<label>
+				<input type="text" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+			</label>
+			<input type="submit" value="delete">
+		</form>
+
+       <br><br>
+     </tr>
+<% } %>
+
+
+
 
 <% include ../partials/footer.ejs %>
