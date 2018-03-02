@@ -33,7 +33,8 @@ buildingController.oneBuilding = (req, res, next) => {
 buildingController.allComplaints = (req, res, next) => {
 	// let propId = req.params.propId
 	console.log('what is propId', req.body.propId );
-	buildingDB.seeComplaints(req.body.propId)
+	blah = req.body.propId
+	buildingDB.seeComplaints(blah)
 	.then((complaints) => {
 		res.locals.complaints = complaints;
 		next();

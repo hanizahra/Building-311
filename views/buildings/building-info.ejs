@@ -9,7 +9,7 @@
 </div>
 <form action="/buildings/complaints" method="post">
 	<label>
-		<input type="text" name="propId" value="<%= JSON.stringify(building[0].propertyid) %>">
+		<input type="text" name="propId" value="<%= JSON.stringify(building[0].propertyid).replace(/"/g,""); %>">
 	</label>
 	<input type="submit" name="submit" value="Complaints">
 </form>
