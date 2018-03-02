@@ -26,7 +26,7 @@ buildingModel.findOne = () =>
 	db.query('SELECT address, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
 
 buildingModel.seeComplaints = (id) => 
-	db.query(`SELECT address, complaint , comment, propertyId FROM complaintInfo WHERE propertyId=$1`, id);
+	db.query(`SELECT address, complaint , comment, propertyId, status, categoryCode, priority FROM complaintInfo WHERE propertyId=$1`, id);
 
 
 // buildingModel.showAll = function() {

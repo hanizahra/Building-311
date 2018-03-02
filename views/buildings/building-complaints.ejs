@@ -4,16 +4,19 @@
 
 <div>
   <h2><%= message %></h2>
-  <% let allComplaints = JSON.stringify(complaints[0]) %>
+  <% let allComplaints = JSON.stringify(complaints[0]).replace(/"/g,"") %>
   <h3><%= allComplaints %></h3>
   <p><%=  %></p>
 </div>
 
 <% for(var i=0; i<JSON.stringify(complaints.length); i++) {%>
      <tr>
-       <%= JSON.stringify(complaints[i].address)%> <br><br>
-       <%= JSON.stringify(complaints[i].complaint)%> <br><br>
-       <%= JSON.stringify(complaints[i].comment)%> <br><br>
+       <%= JSON.stringify(complaints[i].address).replace(/"/g,"").replace(/:/g,"")%> <br><br>
+       <%= JSON.stringify(complaints[i].complaint).replace(/"/g,"")%> <br>
+       <%= JSON.stringify(complaints[i].comment).replace(/"/g,"")%> <br>
+       Status: <%= JSON.stringify(complaints[i].status).replace(/"/g,"")%>
+       <%= JSON.stringify(complaints[i].categoryCode)%> <br>
+       Priority: <%= JSON.stringify(complaints[i].priority).replace(/"/g,"")%> <br><br>
      </tr> <br><br>
 <% } %>
 
