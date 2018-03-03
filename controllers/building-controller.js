@@ -44,10 +44,24 @@ buildingController.allComplaints = (req, res, next) => {
 	})
 };
 
+buildingController.allViolations = (req, res, next) => {
+	console.log('what is propId for allViolations', req.body.propId);
+	propId = req.body.propId
+	buildingDB.seeViolations(propId)
+	.then((violations) => {
+		res.locals.violations = violations;
+		next();
+	})
+	.catch((err) => {
+		res.status(500).json(err)
+	})
+}
+
 buildingController.deleteQuery = (req, res, next) => {
 	propId = req.body.propId
 	buildingDB.destroy(propId)
 	.then((results) => {
+		res.locals.results = results;
 		res.json ({
 			message: 'Query has been deleted.'
 		})

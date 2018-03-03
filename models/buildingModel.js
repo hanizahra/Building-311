@@ -20,13 +20,16 @@ buildingModel.insertComplaintInfo = function(complaintJson) {
 };
 
 buildingModel.findAll = () => 
-	db.query('SELECT DISTINCT address, borough, zipcode FROM buildingInfo');
+	db.query('SELECT DISTINCT address, borough, zipcode , propertyId FROM buildingInfo');
 
 buildingModel.findOne = () => 
 	db.query('SELECT address, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
 
 buildingModel.seeComplaints = (id) => 
 	db.query(`SELECT address, timeDate, complaint , comment, propertyId, status, categoryCode, priority FROM complaintInfo WHERE propertyId=$1`, id);
+
+buildingModel.seeViolations = (id) =>
+	db.query(`SELECT address, propertyId, numComplaints FROM buildingInfo WHERE propertyId=$1`, id);
 
 buildingModel.destroy = (id) =>
 	db.none('DELETE FROM buildingInfo WHERE buildingInfo.propertyId =$1', id)

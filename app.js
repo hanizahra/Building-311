@@ -42,6 +42,13 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
         request(options, function(error, response, html){
             if(!error){
                 console.log('first request ok');
+                
+               
+                    fs.writeFile('newoutput.html', html, function(err) {
+                      console.log('File written in project directory.');
+                    }); 
+            
+
                 let $ = cheerio.load(html);
                
 

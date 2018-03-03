@@ -15,6 +15,9 @@ buildingRouter.get('/building', buildingController.oneBuilding, viewController.s
 // show building complaints
 buildingRouter.post('/complaints', buildingController.allComplaints, viewController.showComplaints, viewController.show404, viewController.show406);
 
+// show building violations
+buildingRouter.post('/violations', buildingController.allViolations, viewController.showViolations)
+
 buildingRouter.delete('/queries', buildingController.deleteQuery, viewController.destroyQuery)
 
 module.exports = buildingRouter

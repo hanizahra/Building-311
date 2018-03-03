@@ -38,6 +38,14 @@ module.exports = {
     });
   },
 
+  showViolations(req, res) {
+    console.log('showViolations in view controller running');
+    res.render('buildings/building-violations.ejs', {
+      message: "Here are the building violations: ",
+      data: res.locals.violations
+    });
+  },
+
   destroyQuery (req, res) {
     console.log('destroyQuery in view controller ran');
     res.render('buildings/building-queries', {

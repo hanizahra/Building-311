@@ -15,23 +15,23 @@
 
        <form action="/buildings/complaints" method="post">
 			<label>
-				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+				<input type="text" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
 			</label>
-			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[0].numcomplaints)%>Complaints">
+			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[i].numcomplaints)%>Complaints">
 		</form>
 
 		<form action="/buildings/violations" method="post">
 			<label>
-				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+				<input type="text" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
 			</label>
-			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[0].numviolations) %>Violations">
+			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[i].numviolations) %>Violations">
 		</form>
 
 		<form action="/buildings/queries/?_method=Delete  method="post">
 			<label>
-				<input type="text" name="propId" value="<%= JSON.stringify(buildings[0].propertyid) %>">
+				<input type="text" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
 			</label>
-			<input type="submit" value="delete">
+			<input type="submit" value="Delete">
 		</form>
 
        <br><br>
