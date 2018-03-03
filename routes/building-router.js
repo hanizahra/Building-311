@@ -5,7 +5,7 @@ const buildingController = require('../controllers/building-controller');
 const viewController = require('../controllers/view-controller');
 
 // show saved queries
-buildingRouter.get('/queries', buildingController.index, viewController.showBuildings, viewController.show404, viewController.show406);
+buildingRouter.get('/queries/', buildingController.index, viewController.showBuildings, viewController.show404, viewController.show406);
 
 // buildingRouter.post('/', buildingController.create)
 
@@ -16,8 +16,9 @@ buildingRouter.get('/building', buildingController.oneBuilding, viewController.s
 buildingRouter.post('/complaints', buildingController.allComplaints, viewController.showComplaints, viewController.show404, viewController.show406);
 
 // show building violations
-buildingRouter.post('/violations', buildingController.allViolations, viewController.showViolations)
+buildingRouter.post('/violations', buildingController.allViolations, viewController.showViolations, viewController.show404, viewController.show406);
 
-buildingRouter.delete('/queries', buildingController.deleteQuery, viewController.destroyQuery)
+// deletes saved queries 
+buildingRouter.delete('/queries', buildingController.deleteQuery, viewController.destroyQuery, viewController.show404, viewController.show406);
 
 module.exports = buildingRouter

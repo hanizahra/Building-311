@@ -48,9 +48,7 @@ module.exports = {
 
   destroyQuery (req, res) {
     console.log('destroyQuery in view controller ran');
-    res.render('buildings/building-queries', {
-      data: res.locals.building
-    });
-  }
+    res.redirect('buildings/queries');
+  },
 
 };

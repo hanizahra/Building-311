@@ -60,11 +60,11 @@ buildingController.allViolations = (req, res, next) => {
 buildingController.deleteQuery = (req, res, next) => {
 	propId = req.body.propId
 	buildingDB.destroy(propId)
-	.then((results) => {
-		res.locals.results = results;
+	.then(() => {
 		res.json ({
 			message: 'Query has been deleted.'
 		})
+		next();
 	})
 	.catch(err => {
 		res.status(500).json({

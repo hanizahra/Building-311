@@ -32,8 +32,11 @@ buildingModel.seeViolations = (id) =>
 	db.query(`SELECT address, propertyId, numComplaints FROM buildingInfo WHERE propertyId=$1`, id);
 
 buildingModel.destroy = (id) =>
-	db.none('DELETE FROM buildingInfo WHERE buildingInfo.propertyId =$1', id)
-	// db.none('DELETE FROM buildingInfo, complaintInfo FROM buildingInfo INNER JOIN complaintInfo WHERE buildingInfo.propertyId = complaintInfo.propertyId AND buildingInfo.propertyId =$1', id)
+	db.none(`BEGIN;
+			DELETE FROM buildingInfo WHERE propertyId = $1;
+  			DELETE FROM complaintInfo WHERE propertyId = $1;
+			COMMIT`, id)
+	// db.none('DELETE FROM buildingInfo WHERE buildingInfo.propertyId =$1', id)
 
 
 module.exports = buildingModel

@@ -1,14 +1,4 @@
-
-<script language="javascript">
-        
-
-
-
-        
-</script>
-
-
-<!---->
+<!--mod v2--> 
 
 
 
@@ -16,12 +6,27 @@
 
 
 
-<!---->
+
+
+
+
+
+
+
 <html>
 <head>
-	<title>DOB Building Information Search</title>
-	<link rel="stylesheet" type="text/css" href="bsqpm.css">
-	<script language=JavaScript src="bis_lib.js"></script>
+	<title>Property Profile Overview</title>
+	<link rel="stylesheet" type="text/css" href="bsqpm.css" media="screen">
+	<link rel="stylesheet" type"text/css" href="print.css" media="print">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<script language="javascript" src="bis_lib.js"></script>
+	<script language="javascript" src="sorttable.js"></script>
+	<script language="javascript">
+	function $(eln)
+	{
+		return document.getElementById(eln);
+	}
+	</script>
 		<script language="javascript">
 	<!--
 		function page(loc, ref)
@@ -49,28 +54,26 @@
 
 </head>
 
+
 <body bgcolor="#ffffff" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" bgproperties="fixed">
-<a name="top"></a>
-<div align="center">
-<table border="0" cellpadding="0" cellspacing="0" width="100%" >
-	<tr>
-		<td colspan=3>
-			<table border="0" cellpadding="3" cellspacing="0" width="100%">  <!--- Start of Header --->
-				<tr>
-					<td class="header" align="center" colspan="3" width="100%">
-						<table border="0" cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<td class="header">
-						&nbsp;&nbsp;<a href='bsqpm01.jsp'>BIS Menu</a>&nbsp;&nbsp;|&nbsp;&nbsp;Bldg Info Search<!--a href="bsqpm01.jsp">BIS Menu</a-->
-								</td>
-								<td class="header2" align="right">&nbsp;&nbsp;<a href="http://www1.nyc.gov/site/buildings/homeowner/homeowner-faqs.page">FAQs</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www1.nyc.gov/site/buildings/about/acronym-glossary.page">Glossary</a>
-						&nbsp;&nbsp;
-									<script language="javascript">
-									<!---
-										print_today();
-									//--->
-									</script>
-										<script language="javascript">
+<center>
+	<table border="0" cellpadding="3" cellspacing="0" width="100%">  <!--- Start of Header --->
+		<tr>
+			<td class="header" align="center" colspan="3" width="100%">
+			<DIV class="noprint">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="header">
+				&nbsp;&nbsp;<a href='bsqpm01.jsp'>BIS Menu</a>&nbsp;&nbsp;|&nbsp;&nbsp;Property Profile
+						</td>
+						<td class="header2" align="right">&nbsp;&nbsp;<a href="http://www1.nyc.gov/site/buildings/homeowner/homeowner-faqs.page">FAQs</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www1.nyc.gov/site/buildings/about/acronym-glossary.page">Glossary</a>
+				&nbsp;&nbsp;
+							<script language="javascript">
+							<!---
+								print_today();
+							//--->
+							</script>
+								<script language="javascript">
 	<!--
 		function page(loc, ref)
 		{
@@ -95,1576 +98,682 @@
 	//-->
 	</script>
 
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td colspan=2><a href="http://www1.nyc.gov/site/buildings/index.page"><img src="./images/doblogo_1.jpg" alt="DOB Logo - Link to Homepage" border="0"></a></td>  <!--- Cell for DOB Logo --->
-					<td align="right"><a href="http://www1.nyc.gov/"><img src="./images/nyclogo.gif" alt="NYC.gov Logo - Link to Homepage" border="0"></a>
-						<br>
-						<a href="https://www.nyc.gov/portal/site/nycgov/menuitem.63099911d804683c09416f1076a09da0/">
-							<img border="0" src="images/clckhere.gif" onmouseover="this.src='images/clckhere_over.gif';" onmouseout="this.src='images/clckhere.gif';">
-						</a>
-					</td>
-				</tr>
-				<tr valign="bottom">
-					<td colspan=3 class="nychdg" align="center"><b>NYC Department of Buildings</b></td>
-				</tr>
-				<tr valign="top">
-					<td colspan=3 class="mainhdg" align="center">Building Information Search</td>
-				</tr>
-                                <!--
-				<tr valign="top">
-					<td colspan=3 class="mainhdg" align="center"><p><br>
-					 <b class="label"><font color="red">BISWeb is experiencing slow response times intermittently. We are aware of this issue and working<br>
-					on resolving the issue as quickly as we can. We apologize for the inconvenience and thank you for your patience. </font></b>
-					<br><br></td>
-				</tr>
-				-->	
-				<tr>
-					 <td colspan=3 align="center">
-					 	<table border="1" cellpadding="2" cellspacing="0" width="700">
-							<tr>
-								 <td class="largelabel" align="center" valign="middle" height="70">
-								 The below search does not include filings submitted in DOB NOW; use the <a target="new" href="http://www.nyc.gov/dobnow" style="font-size: 12pt;">DOB NOW Public Portal</a> to access DOB NOW records.
-								 </td>
-							</tr>
-						</table>
-					 </td>
-				</tr>
-				
-
-				
-				<tr valign="top">
-					<td class="errormsg" colspan=3 align="center">*INVALID ADDRESS HAS  BEEN ENTERED                                          </td>
-				</tr>
-				
-			</table>		<!--- End of Header --->
-		</td>
-	</tr>
-
-	<tr valign="top">		<!--- Start of Search Area --->
-	<td >
-	
+						</td>
+					</tr>
 				</table>
-				<!--end of websphere -->
-		</td>
+			</DIV>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2><a href="http://www1.nyc.gov/site/buildings/index.page"><img src="./images/doblogo_1.jpg" alt="DOB Logo - Link to Homepage" border="0"></a></td>  <!--- Cell for DOB Logo --->
+			<td align="right"><a href="http://www1.nyc.gov/"><img src="./images/nyclogo.gif" alt="NYC.gov Logo - Link to Homepage" border="0"></a>
+				<br>
+				<a href="https://www.nyc.gov/portal/site/nycgov/menuitem.63099911d804683c09416f1076a09da0/" onclick="javascript:page('/ext/signupnews', document.location);">
+					<img border="0" src="images/clckhere.gif" onmouseover="this.src='images/clckhere_over.gif';" onmouseout="this.src='images/clckhere.gif';">
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=3 class="nychdg" align="center"><b>NYC Department of Buildings</b></td>
+		</tr>
+		<tr>
+			<td colspan=3 class="mainhdg" align="center">Property Profile Overview</td>
+		</tr>
+		
+	</table>		<!--- End of Header --->
 
-		<td >
-			<table border="0" cellpadding="3" cellspacing="5" width="560">  <!--- Nested table for Search Criterias --->
 
+	<table border="0" cellpadding="1" cellspacing="0" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=158 height=1 alt=''></td><td><img src='./images/Clear.gif' width=154 height=1 alt=''></td><td><img src='./images/Clear.gif' width=175 height=1 alt=''></td><td><img src='./images/Clear.gif' width=125 height=1 alt=''></td><td><img src='./images/Clear.gif' width=118 height=1 alt=''></td></tr>
 
-				<tr valign="top">
-					<td align="center">
-						<span class="content">
-							<a href="#property"><b>Property Search</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#compviol"><b>Complaints / Violations</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#application"><b>Applications</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#boiler"><b>Boiler Search</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#gas"><b>Gas Service</b></a>
-						</span><br>
-						<span class="content">
-							<a href="#power"><b>Power Authorizations</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#elevator"><b>Elevator Devices</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							<a href="#crane"><b>Cranes & Derricks</b></a></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-							
-			             </span>
+		<tr>
+			<td class="maininfo" colspan=2>100 GOLD STREET</td>
+			<td class="maininfo">MANHATTAN&nbsp;&nbsp;&nbsp;10038</td>
+			<td class="maininfo" align="right">BIN#&nbsp;&nbsp;1001289&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td class="maininfo"></td>
+		</tr>
+	</table>
+
+	<table border="0" cellpadding="0" cellspacing="1" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=150 height=1 alt=''></td><td><img src='./images/Clear.gif' width=3 height=1 alt=''></td><td><img src='./images/Clear.gif' width=90 height=1 alt=''></td><td><img src='./images/Clear.gif' width=40 height=1 alt=''></td><td><img src='./images/Clear.gif' width=125 height=1 alt=''></td><td><img src='./images/Clear.gif' width=55 height=1 alt=''></td><td><img src='./images/Clear.gif' width=35 height=1 alt=''></td><td><img src='./images/Clear.gif' width=75 height=1 alt=''></td><td><img src='./images/Clear.gif' width=75 height=1 alt=''></td><td><img src='./images/Clear.gif' width=50 height=1 alt=''></td></tr>
+
+		<tr valign="top">
+			<td class="content">GOLD STREET</td>
+			<td></td>
+			
+			<td class="content">96 - 102</td>
+			<!--<td class="content">96 - 102</td>-->
+			<td></td>
+			
+				<td class="content"><b>Health Area</b></td>
+				<td class="content">: 7700</td>
+			
+			<td></td>
+			<td class="content"><b>Tax Block</b></td>
+			<td class="content">: 94</td>
+		</tr>
+		<tr valign="top">
+			<td class="content">FRANKFORT STREET</td>
+			<td></td>
+			<td class="content">NO NUMBER</td>
+			<td></td>
+			
+				<td class="content"><b>Census Tract</b></td>
+				
+					<td class="content">: 15.01</td>
+				
+			
+			<td></td>
+			<td class="content"><b>Tax Lot</b></td>
+			<td class="content">: 25</td>
+		</tr>
+		<tr valign="top">
+			<td class="content"></td>
+			<td></td>
+			<td class="content"></td>
+			<td></td>
+			
+			<td class="content"><b>Community Board</b></td>
+			<td class="content">: 101</td>
+			
+			<td></td>
+			
+				<td class="content"><b>Condo</b></td>
+				<td class="content">: NO</td>
+			
+		</tr>
+		<tr valign="top">
+			<td class="content"></td>
+			<td></td>
+			<td class="content"></td>
+			<td></td>
+			
 					
-					</td>
-				</tr>
-
-				
-				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="property"></a>&nbsp;&nbsp;Search by Property<br></td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE" align="left">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">   <!--- Search By House Number & Street --->
-						<form action="PropertyProfileOverviewServlet" method="get" onSubmit="return verifySearchP_A(this);">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="100%">
-									<tr>
-										<td width="20" class="menunumber">1</td>
-									</tr>
-								</table>
-							</td>
-							<td class="content">
-								&nbsp;&nbsp;
-								
-								<select id="boro1" name="boro">
-									<option value="0">Pick a Borough</option>
-									<option value="1">Manhattan</option>
-									<option value="2">Bronx</option>
-									<option value="3">Brooklyn</option>
-									<option value="4">Queens</option>
-									<option value="5">Staten Island</option>
-								</select>
-								
-							</td>
-							<td class="content" align="right">
-								House No:&nbsp;<input  type="text" name="houseno" size="5" maxlength="10" value="">&nbsp;&nbsp;&nbsp;
-							</td>
-							<td class="content" align="right">
-								Street:&nbsp;<input type="text" name="street" size="18" maxlength="32" value="">
-							</td>
-							<td class="content" align="right">
-								<input type="submit" name="go2"  value=" GO ">
-							</td>
-						</tr>
-							<input type="hidden" name="requestid" value="0">
-						</form>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE" align="left">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">  <!--- Search By Block & Lot --->
-						<form action="PropertyProfileOverviewServlet" method="get" onSubmit="return verifySearchP_B(this);">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">2</td>
-									</tr>
-								</table>
-							</td>
-							<td class="content">
-								&nbsp;&nbsp;
-								
-								<select id="boro2" name="boro">
-									<option value="0">Pick a Borough</option>
-									<option value="1">Manhattan</option>
-									<option value="2">Bronx</option>
-									<option value="3">Brooklyn</option>
-									<option value="4">Queens</option>
-									<option value="5">Staten Island</option>
-								</select>
-								
-								&nbsp;&nbsp;
-							</td>
-							<td class="content" align="left">
-								Block:&nbsp;<input name="block" type="text" size="5" maxlength="5" value="">
-							</td>
-							<td class="content">
-								Lot:&nbsp;<input type="text" name="lot" size="5" maxlength="5" value="">&nbsp;&nbsp;
-							</td>
-							<td class="content" align="right">
-								<input type="submit" name="go3" value=" GO ">
-							</td>
-						</tr>
-							<input type="hidden" name="requestid" value="0">
-						</form>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE" align="left">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">   <!--- Search By BIN --->
-						<form action="PropertyProfileOverviewServlet" method="get" onSubmit="return verifySearchP_C(this);">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="100%">
-									<tr>
-										<td width="20" class="menunumber">3</td>
-									</tr>
-								</table>
-							</td>
-							<td class="content" align="center">
-								Building Identification Number (BIN):&nbsp;
-								<input type="text" name="bin" size="8" maxlength="7" value="">
-							</td>
-							<td class="content" align="right">
-								<input type="submit"  name="go4"  value=" GO ">
-							</td>
-						</tr>
-							<input type="hidden" name="requestid" value="0">
-						</form>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE" align="left">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">  <!--- Search By Block & Lot --->
-						<form action="PropertyBrowseByBBLServlet" method="get" onSubmit="return verifySearchP_V(this);">
-						<tr>
-							<td align="center" colspan="5" class="content">
-								Browse Block and Lot
-							</td>
-						</tr>
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">4</td>
-									</tr>
-								</table>
-							</td>
-							<td class="content">
-								&nbsp;&nbsp;
-								<select  id="allborough1" name="allborough">
-									<option value="0" >Pick a Borough</option>
-									<option value="1" >Manhattan</option>
-									<option value="2" >Bronx</option>
-									<option value="3" >Brooklyn</option>
-									<option value="4" >Queens</option>
-									<option value="5" >Staten Island</option>
-								</select>
-								&nbsp;&nbsp;
-							</td>
-							<td class="content" align="left">
-								Block:&nbsp;<input name="allblock" type="text" size="5" maxlength="5" value="">
-							</td>
-							<td class="content">
-								Lot (optional): <input type="text" name="alllot" size="5" maxlength="5" value="">&nbsp;&nbsp;
-							</td>
-							<td class="content" align="right">
-								<input type="submit" name="go5" value=" GO ">
-							</td>
-						</tr>
-							<input type="hidden" name="requestid" value="0">
-						</form>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="compviol"></a>&nbsp;&nbsp;Search for Complaint or Violation</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">   <!--- Search By Complaint Number --->
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">5</td>
-									</tr>
-								</table>
-							</td>
-							<form action="OverviewForComplaintServlet" method="get" onSubmit="return verifySearchP_D(this);">
-								<td class="content" align="center">
-									<table border="0" cellpadding="0" cellspacing="2">
-										<tr>
-										<td class="content" align="right" width="50%">Complaint Number:</td>
-										<td class="content" align="left" width="50%"><input type="text" name="complaintno" size="8" maxlength="7" value=""></td>
-										</tr>
-									</table>
-								</td>
-								<td class="content" align="right"><input type="submit" name="go6"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-						<tr>	<td width="25"></td>							
-							<form action="OverviewForComplaintServlet" method="get" onSubmit="return verifySearchP_D1(this);">
-								<td class="content" align="center">
-									<table border="0" cellpadding="0" cellspacing="2">
-										<tr>
-										<td class="content" align="right" width="50%">311 Reference Number:</td>
-										<td class="content" align="left" width="50%"><input type="text" name="calternatekey" size="20" maxlength="20" value=""></td>
-										</tr>
-									</table>
-								</td>
-								<td class="content" align="right"><input type="submit" name="go6"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>							
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">   <!--- Search By Complaint Number --->
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">6</td>
-									</tr>
-								</table>
-							</td>
-							<form action="ECBQueryByNumberServlet" method="get" onSubmit="return verifySearchP_E(this);">
-								<td class="content" align="center">
-									ECB Violation Number:<input type="text" name="ecbin" size="10" maxlength="10" value="">
-								&nbsp;</td>
-								<td class="content" align="right"><input type="submit" name="go7"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">   <!--- Search By Complaint Number --->
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">7</td>
-									</tr>
-								</table>
-							</td>
-							<form action="ECBQueryByLocationServlet" method="get" onSubmit="return verifySearchP_F(this);">
-								<td class="content" align="center">
-									BIN Number for ECB Violation: <input type="text" name="allbin" size="8" maxlength="7" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go8" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-								<input type="hidden" name="fillerdata" value="A">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25" valign=top>
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">8</td>
-									</tr>
-								</table>
-							</td>
-							<form action="ECBBrowseByDateTypeServlet" method="get" onSubmit="return verifySearchP_G(this);">
-								<td class="content" align="center">
-
-								<select name="allviolationtype">
-									<option value="">Select ECB Viol Type</option>
-									
-										<option value="AD" >ADMINISTRATIVE</option>
-									
-										<option value="BL" >BOILER</option>
-									
-										<option value="CD" >CRANES &amp; DERRICKS</option>
-									
-										<option value="CN" >CONSTRUCTION</option>
-									
-										<option value="EE" >ELECTRICAL</option>
-									
-										<option value="EL" >ELEVATOR</option>
-									
-										<option value="HP" >HPD</option>
-									
-										<option value="LL" >LOCAL LAW</option>
-									
-										<option value="PA" >PUBLIC ASSEMBLY</option>
-									
-										<option value="PB" >PLUMBING</option>
-									
-										<option value="PD" >PHYSICAL DISABILITY</option>
-									
-										<option value="QL" >QUALITY OF LIFE</option>
-									
-										<option value="SG" >SIGNS</option>
-									
-										<option value="SS" >SITE SAFETY</option>
-									
-										<option value="ZN" >ZONING</option>
-									
-								</select><br>
-
-								<table border="0" cellpadding="0" cellspacing="2">
-								<tr>
-									<td class="content" align="right">
-								Start Month: <select id="allstartdate_month1" name="allstartdate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								Start Day: <input type="text" id="allstartdate_day1" name="allstartdate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								Start Year: <input type="text" id="allstartdate_year1" name="allstartdate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								<tr>
-									<td class="content" align="right">(optional)
-								&nbsp;End Month: <select id="allenddate_month1" name="allenddate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								End Day: <input type="text" id="allenddate_day1" name="allenddate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								End Year: <input type="text" id="allenddate_year1" name="allenddate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								</table>
-								<!--span class="content">(Maximum timespan is 400 days.  Leave end date blank for "start date + 400 days".)</span-->
-
-								</td>
-								<td class="content" align="right"  valign=top><input type="submit"  name="go9"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="application"></a>&nbsp;&nbsp;Application Searches</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">9</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsQueryByNumberServlet" method="get" onSubmit="return verifySearchP_H(this);">
-								<td class="content" align="center">
-									BIS Job Number: <input type="text" id="passjobnumber1" name="passjobnumber" size="10" maxlength="9" value="">&nbsp;&nbsp;
-									Doc Number (optional): <input type="text" id="passdocnumber1" name="passdocnumber" size="3" maxlength="2" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go10"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">10</td>
-									</tr>
-								</table>
-							</td>
-							<form action="PermitQueryByNumberServlet" method="get" onSubmit="return verifySearchP_S(this);">
-								<td class="content" align="center">
-									Permit Number: <input type="text" id="passjobnumber2" name="passjobnumber" size="10" maxlength="9" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go11" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">11</td>
-									</tr>
-								</table>
-							</td>
-							<form action="GasServiceInspectionResultsServlet" method="get" onSubmit="return verifySearchP_T(this);">
-								<td class="content" align="center">
-									BIS Plumbing Work Order Number: <input type="text" name="passworkordernumber"  id="passworkordernumber1" size="9" maxlength="8" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go12"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">12</td>
-									</tr>
-								</table>
-							</td>
-							<form action="WorkPermitByIssueDateServlet" method="get" onSubmit="return verifySearchP_ID(this);">
-								<td class="content" align="right" ><table>
-								<tr><td class="content" align="right" colspan="2">
-								<table border="0" cellpadding="0" cellspacing="2">
-								<tr>
-									<td class="content" align="left">Permits by Issue Date:</td>
-								</tr>
-								<tr>
-									<td class="content" align="right">
-								Start Month: <select id="allstartdate_month"  name="allstartdate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								Day: <input type="text" id="allstartdate_day" name="allstartdate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								Year: <input type="text" id="allstartdate_year" name="allstartdate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								<tr>
-									<td class="content" align="right">(optional)
-								&nbsp;End Month: <select id="allenddate_month" name="allenddate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								End Day: <input type="text" id="allenddate_day" name="allenddate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								End Year: <input type="text" id="allenddate_year" name="allenddate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								</table></td></tr>
-								<tr>
-									<td class="content" align="right" colspan="2"><select id="allpermittype" name="allpermittype">
-										<option value="">Select Permit Type</option>
-									
-										<option value="AL" >AL - ALTERATION</option>
-									
-										<option value="DM" >DM - DEMOLITION &amp; REMOVAL</option>
-									
-										<option value="EQ" >EQ - CONSTRUCTION EQUIPMENT</option>
-									
-										<option value="EW" >EW - EQUIPMENT WORK</option>
-									
-										<option value="FO" >FO - FOUNDATION/EARTHWORK</option>
-									
-										<option value="NB" >NB - NEW BUILDING</option>
-									
-										<option value="PL" >PL - PLUMBING</option>
-									
-										<option value="SG" >SG - SIGN</option>
-									
-									</select>							
-									</td>
-									<td class="content" align="right"><input type="submit" name="go13" value=" GO "></td>
-								</tr>
-								</table></td>
-								<input type="hidden" name="requestid" value="0">
-								<input type="hidden" name="navflag" value="T">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">13</td>
-									</tr>
-								</table>
-							</td>
-							<form action="WorkPermitByLicenseServlet" method="get" onSubmit="return verifySearchP_U(this);">
-								<td class="content" align="center" ><table><tr><td class="content" align="right">
-									Permits by Applicant:
-									</td><td class="content"><select id="alljappproftitle0" name="alljappproftitle">
-										<option value="">Select Applicant Type</option>
-										<option value="FS" >FIRE SUPPRESSION CONTRACTOR</option>
-										<option value="GC" >GENERAL CONTRACTOR</option>
-										<option value="OB" >OIL BURNER INSTALLER</option>
-										<option value="PE" >PROFESSIONAL ENGINEER</option>
-										<option value="MP" >MASTER PLUMBER</option>
-										<option value="RA" >REGISTERED ARCHITECT</option>
-										<option value="SI" >SIGN HANGER</option>
-										<option value="SU" >SUPER OF CONSTRUCTION</option>
-										<option value="MC" >SITE SAFETY COORDINATOR</option>
-										<option value="MM" >SITE SAFETY MANAGER</option>
-									</select>
-									</td><tr>
-									<tr><td class="content" align="right">
-									License/Tracking No:</td><td><input type="text" id="alljapplicnumber0" name="alljapplicnumber" size="7" maxlength="6" value="">
-								    </td></tr></table></td>
-								<td class="content" align="right"><input type="submit" name="go14" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-								<input type="hidden" name="navflag" value="T">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">14</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsPlumbingInspectionsByLicenseeServlet" method="get" onSubmit="return verifySearchP_U(this);">
-								<td class="content" align="center">
-									Work Orders by Licensee:
-									<select id="alljappproftitle1" name="alljappproftitle">
-										<option value="">Select License Type</option>
-										<option value="F" >Fire Suppression Contractor</option>
-										<option value="P" >Master Plumber</option>
-									</select>&nbsp;&nbsp;
-									Lic No:&nbsp;<input type="text" id="alljapplicnumber1" name="alljapplicnumber" size="7" maxlength="6" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go15" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-								<input type="hidden" name="navflag" value="T">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">15</td>
-									</tr>
-								</table>
-							</td>
-							<form action="COApplicationSummaryServlet" method="get" onSubmit="return verifySearchP_I(this);">
-								<td class="content" align="center">
-									C. of O. Application Number: <input type="text" id="passjobnumber3" name="passjobnumber" size="10" maxlength="9" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go16" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">16</td>
-									</tr>
-								</table>
-							</td>
-							<form action="InspectionWorkOrderQueryServlet" method="get" onSubmit="return verifySearchP_J(this);">
-								<td class="content" align="center">
-									C. of O. Work Order Number: <input type="text" name="passworkordernumber"  id="passworkordernumber2"  size="9" maxlength="8" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go17"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">17</td>
-									</tr>
-								</table>
-							</td>
-							<form action="ELInspectionWorkOrderServlet" method="get" onSubmit="return verifySearchP_K(this);">
-								<td class="content" align="center">
-									Electrical Application / Work Order Number: <input type="text" name="allcontrolnumber" size="8" maxlength="7" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go18"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25" valign="top">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">18</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsByTypeComBdDateServlet" method="get" onSubmit="return verifySearchP_L(this);">
-								<td class="content" align="center">Jobs by Community Board: <br>
-
-								<select name="alljobtype">
-									<option value="">Select BIS Job Type</option>
-									
-										<option value="A1" >A1 - ALTERATION TYPE 1</option>
-									
-										<option value="A2" >A2 - ALTERATION TYPE 2</option>
-									
-										<option value="A3" >A3 - ALTERATION TYPE 3</option>
-									
-										<option value="DM" >DM - FULL DEMOLITION</option>
-									
-										<option value="NB" >NB - NEW BUILDING</option>
-									
-										<option value="PA" >PA - PLACE OF ASSEMBLY</option>
-									
-										<option value="PR" >PR - LAA (ARA)</option>
-									
-										<option value="SC" >SC - SUBDIVISION - CONDO</option>
-									
-										<option value="SG" >SG - SIGN</option>
-									
-										<option value="SI" >SI - SUBDIVISION - IMPROVED</option>
-									
-										<option value="SU" >SU - SUBDIVISION - UNIMPROVED</option>
-									
-								</select>&nbsp;&nbsp;
-
-								<select name="allcommbd">
-									<option value="">Select Comm Bd</option>
-									
-										<option value="1" >Manhattan -- ALL</option>
-												
-										<option value="101" >Manhattan -- 01</option>
-									
-										<option value="102" >Manhattan -- 02</option>
-									
-										<option value="103" >Manhattan -- 03</option>
-									
-										<option value="104" >Manhattan -- 04</option>
-									
-										<option value="105" >Manhattan -- 05</option>
-									
-										<option value="106" >Manhattan -- 06</option>
-									
-										<option value="107" >Manhattan -- 07</option>
-									
-										<option value="108" >Manhattan -- 08</option>
-									
-										<option value="109" >Manhattan -- 09</option>
-									
-										<option value="110" >Manhattan -- 10</option>
-									
-										<option value="111" >Manhattan -- 11</option>
-									
-										<option value="112" >Manhattan -- 12</option>
-									
-										<option value="2" >Bronx -- ALL</option>
-												
-										<option value="201" >Bronx -- 01</option>
-									
-										<option value="202" >Bronx -- 02</option>
-									
-										<option value="203" >Bronx -- 03</option>
-									
-										<option value="204" >Bronx -- 04</option>
-									
-										<option value="205" >Bronx -- 05</option>
-									
-										<option value="206" >Bronx -- 06</option>
-									
-										<option value="207" >Bronx -- 07</option>
-									
-										<option value="208" >Bronx -- 08</option>
-									
-										<option value="209" >Bronx -- 09</option>
-									
-										<option value="210" >Bronx -- 10</option>
-									
-										<option value="211" >Bronx -- 11</option>
-									
-										<option value="212" >Bronx -- 12</option>
-									
-										<option value="226" >Bronx -- 26</option>
-									
-										<option value="3" >Brooklyn -- ALL</option>
-												
-										<option value="301" >Brooklyn -- 01</option>
-									
-										<option value="302" >Brooklyn -- 02</option>
-									
-										<option value="303" >Brooklyn -- 03</option>
-									
-										<option value="304" >Brooklyn -- 04</option>
-									
-										<option value="305" >Brooklyn -- 05</option>
-									
-										<option value="306" >Brooklyn -- 06</option>
-									
-										<option value="307" >Brooklyn -- 07</option>
-									
-										<option value="308" >Brooklyn -- 08</option>
-									
-										<option value="309" >Brooklyn -- 09</option>
-									
-										<option value="310" >Brooklyn -- 10</option>
-									
-										<option value="311" >Brooklyn -- 11</option>
-									
-										<option value="312" >Brooklyn -- 12</option>
-									
-										<option value="313" >Brooklyn -- 13</option>
-									
-										<option value="314" >Brooklyn -- 14</option>
-									
-										<option value="315" >Brooklyn -- 15</option>
-									
-										<option value="316" >Brooklyn -- 16</option>
-									
-										<option value="317" >Brooklyn -- 17</option>
-									
-										<option value="318" >Brooklyn -- 18</option>
-									
-										<option value="4" >Queens -- ALL</option>
-												
-										<option value="401" >Queens -- 01</option>
-									
-										<option value="402" >Queens -- 02</option>
-									
-										<option value="403" >Queens -- 03</option>
-									
-										<option value="404" >Queens -- 04</option>
-									
-										<option value="405" >Queens -- 05</option>
-									
-										<option value="406" >Queens -- 06</option>
-									
-										<option value="407" >Queens -- 07</option>
-									
-										<option value="408" >Queens -- 08</option>
-									
-										<option value="409" >Queens -- 09</option>
-									
-										<option value="410" >Queens -- 10</option>
-									
-										<option value="411" >Queens -- 11</option>
-									
-										<option value="412" >Queens -- 12</option>
-									
-										<option value="413" >Queens -- 13</option>
-									
-										<option value="414" >Queens -- 14</option>
-									
-										<option value="5" >Staten Island -- ALL</option>
-												
-										<option value="501" >Staten Island -- 01</option>
-									
-										<option value="502" >Staten Island -- 02</option>
-									
-										<option value="503" >Staten Island -- 03</option>
-									
-								</select><br>
-
-								<table border="0" cellpadding="0" cellspacing="2">
-								<tr>
-									<td class="content" align="right">
-								Start Month: <select id="allstartdate_month2"  name="allstartdate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								Start Day: <input type="text" id="allstartdate_day2" name="allstartdate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								Start Year: <input type="text" id="allstartdate_year2" name="allstartdate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-
-								<tr>
-									<td class="content" align="right">(optional)
-								&nbsp;End Month: <select id="allenddate_month2" name="allenddate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								End Day: <input type="text" id="allenddate_day2" name="allenddate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								End Year: <input type="text" id="allenddate_year2" name="allenddate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								</table>
-								<!--span class="content">(Maximum timespan is 400 days.  Leave end date blank for "start date + 400 days".)</span-->
-
-								</td>
-								<td class="content" align="right"><input type="submit" name="go19"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">19</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsByLicenseNumberServlet" method="get" onSubmit="return verifySearchP_M(this);">
-								<td class="content" align="center">
-									BIS Jobs:
-									<select id="alljappproftitle2" name="alljappproftitle">
-										<option value="">Select License Type</option>
-										<option value="PE" >Professional Engineer</option>
-										<option value="RA" >Registered Architect</option>
-									</select>&nbsp;&nbsp;
-									License Number: <input type="text" id="alljapplicnumber2"  name="alljapplicnumber" size="8" maxlength="7" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go20" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0"><input type="hidden" name="allinquirytype" value="BXS1LI08">
-								</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">20</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsByLicenseNumberServlet" method="get" onSubmit="return verifySearchP_N(this);">
-								<td class="content" align="center">
-									LAA Jobs:
-									<select id="alljappproftitle3" name="alljappproftitle">
-										<option value="">Select License Type</option>
-										<option value="F" >Fire Suppression Contractor</option>
-										<option value="O" >Oil Burner Installer</option>
-										<option value="P" >Master Plumber</option>
-									</select>&nbsp;&nbsp;
-									License Number: <input type="text" id="alljapplicnumber3"  name="alljapplicnumber" size="7" maxlength="6" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go21" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0"><input type="hidden" name="allinquirytype" value="BXS1LI04">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">21</td>
-									</tr>
-								</table>
-							</td>
-							<form action="JobsByRegistrationNumberServlet" method="get" onSubmit="return verifyJobsforRegistrationSearch(this);">
-								<td class="content" align="center">
-									BIS Jobs Filing Representative
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									Registration Number: <input type="text" id="allkey"  name="allkey" size="18" maxlength="20" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go22" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0"><input type="hidden" name="allinquirytype" value="BXS1NMBR">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				
-				
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">22<a name="signoff"></a></td>
-									</tr>
-								</table>
-							</td>
-							<form action="ElectricalQueryByNumberServlet" method="get" onSubmit="return verifySearch_EL(this);">
-								<td class="content" align="center">
-									Electrical Applications:
-									<select id="alljappproftitle4" name="alljappproftitle">
-										<option value="0">Search by ...
-										<option value="A" >License</option>
-										<option value="B" >Firm</option>
-									</select>&nbsp;&nbsp;
-								   Number: <input type="text" id="alljapplicnumber4"  name="alljapplicnumber" size="7" maxlength="6" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go23"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="boiler"></a>&nbsp;&nbsp;Boiler Search</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr valign="top">
-							<td class="label" colspan=2 align="center"><font color =red>The below information does not include 2017 Boiler Inspection Cycle compliance filings submitted after August 14, 2017;
-				use the <a target="new" href="http://www.nyc.gov/dobnow" style="color:red;font-size: 10pt;">DOB NOW Public Portal</a> to access DOB NOW records.</font></td>
-						</tr>	
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">23</td>
-									</tr>
-								</table>
-							</td>
-							<form action="BoilerComplianceQueryServlet" method="get" onSubmit="return verifySearchP_O(this);">
-								<td class="content" align="center">
-									<select  id="allborough3" name="allborough">
-										<option value="0">Pick a Borough
-										<option value="1" >Manhattan
-										<option value="2" >Bronx
-										<option value="3" >Brooklyn
-										<option value="4" >Queens
-										<option value="5" >Staten Island</option>
-									</select>&nbsp;&nbsp;
-									Boiler Number: <input type="text" name="boilernumber" size="11" maxlength="10" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go24"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="gas"></a>&nbsp;&nbsp;Gas Service Authorization</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25" valign=top>
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">24</td>
-									</tr>
-								</table>
-							</td>
-							<form action="GasServiceAuthorizationServlet" method="get" onSubmit="return verifySearchP_P(this);">
-								<td class="content" align="center">
-
-								<select  id="allborough4" name="allborough">
-									<option value="0" >Pick a Borough</option>
-									<option value="1" >Manhattan</option>
-									<option value="2" >Bronx</option>
-									<option value="3" >Brooklyn</option>
-									<option value="4" >Queens</option>
-									<option value="5" >Staten Island</option>
-								</select><br>
-
-								<table border="0" cellpadding="0" cellspacing="2">
-								<tr>
-									<td class="content" align="right">
-								Start Month: <select id="allstartdate_month3"  name="allstartdate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								Start Day: <input type="text" id="allstartdate_day3" name="allstartdate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								Start Year: <input type="text" id="allstartdate_year3" name="allstartdate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								<tr>
-									<td class="content" align="right">(optional)
-								&nbsp;End Month: <select id="allenddate_month3" name="allenddate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								End Day: <input type="text" id="allenddate_day3" name="allenddate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								End Year: <input type="text" id="allenddate_year3" name="allenddate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								</table>
-								<!--span class="content">(Maximum timespan is 400 days.  Leave end date blank for "start date + 400 days".)</span-->
-
-								</td>
-								<td class="content" align="right"  valign=top><input type="submit" name="go25"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="power"></a>&nbsp;&nbsp;Power Authorizations Issued</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25" valign=top>
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">25</td>
-									</tr>
-								</table>
-							</td>
-							<form action="BECPowerAuthorizationsIssuedServlet" method="get" onSubmit="return verifySearchP_Q(this);">
-								<td class="content" align="center">
-
-								<select  id="allborough5" name="allborough">
-									<option value="0" >Pick a Borough</option>
-									<option value="A" >All Boroughs</option>
-									<option value="1" >Manhattan</option>
-									<option value="2" >Bronx</option>
-									<option value="3" >Brooklyn</option>
-									<option value="4" >Queens</option>
-									<option value="5" >Staten Island</option>
-								</select><br>
-
-								<table border="0" cellpadding="0" cellspacing="2">
-								<tr>
-									<td class="content" align="right">
-								Start Month: <select id="allstartdate_month4"  name="allstartdate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								Start Day: <input type="text" id="allstartdate_day4" name="allstartdate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								Start Year: <input type="text" id="allstartdate_year4" name="allstartdate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								<tr>
-									<td class="content" align="right">(optional)
-								&nbsp;End Month: <select id="allenddate_month4" name="allenddate_month">
-									<option value=""></option>
-									<option value="01" >Jan</option>
-									<option value="02" >Feb</option>
-									<option value="03" >Mar</option>
-									<option value="04" >Apr</option>
-									<option value="05" >May</option>
-									<option value="06" >Jun</option>
-									<option value="07" >Jul</option>
-									<option value="08" >Aug</option>
-									<option value="09" >Sep</option>
-									<option value="10" >Oct</option>
-									<option value="11" >Nov</option>
-									<option value="12" >Dec</option>
-								</select>
-									</td>
-									<td class="content" align="right">
-								End Day: <input type="text" id="allenddate_day4" name="allenddate_day" size="2" class="textinput" maxlength="2" value="">
-									</td>
-									<td class="content" align="right">
-								End Year: <input type="text" id="allenddate_year4" name="allenddate_year" size="4" class="textinput" maxlength="4" value=""></b>
-									</td>
-								</tr>
-								</table>
-								<!--span class="content">(Maximum timespan is 400 days.  Leave end date blank for "start date + 400 days".)</span-->
-
-								</td>
-								<td class="content" align="right"  valign=top><input type="submit" name="go26" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-				
- 				<tr>
-					<td class="srchtype" bgcolor="#9BCDFF"><a name="elevator"></a>&nbsp;&nbsp;Elevator Device Search</td>
-				</tr>
-				<tr>
-					<td bgcolor="#CECECE">
-					<table border="0" cellpadding="3" cellspacing="0" width="100%">
-						<tr>
-							<td width="25">
-								<table border="0" cellpadding="0" cellspacing="2" width="25">
-									<tr>
-										<td width="20" class="menunumber">26</td>
-									</tr>
-								</table>
-							</td>
-							<form action="ElevatorDetailsForDeviceServlet" method="get" onSubmit="return verifySearchP_R(this);">
-								<td class="content" align="center">
-									Device Number: <input type="text" name="passdevicenumber" size="9" maxlength="8" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go27"  value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-						</tr>
-					</table>
-					</td>
-				</tr>
-				<tr>
-					<td class="content" align="right"><a href="#top">Back to top</a></td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
+						
+						<td class="content"><b>Buildings on Lot</b></td>
+						<td class="content">: &nbsp;1</td>
+						
+					
 			
-
-			<tr>
-				<td class="srchtype" bgcolor="#9BCDFF"><a name="crane"></a>&nbsp;&nbsp;Cranes & Derricks</td>
-			</tr>
+			<td></td>
 			
-			<tr>
-				<td bgcolor="#CECECE">
-				<table border="0" cellpadding="3" cellspacing="0" width="100%">
-					<tr>
-						<td width="25">
-							<table border="0" cellpadding="0" cellspacing="2" width="25">
-								<tr>
-									<td width="20" class="menunumber">27</td>
-								</tr>
-							</table>
-						</td>
-							<form action="CraneDerrickPrototypeAndCDServlet" method="get" onSubmit="return verifySearch_CD(this);">
-
-								<td class="rightcontent" width="30%">
-									CD Number:
-								</td>
-								<td class="content">
-									<input type="text" name="allcdnumber" size="12" maxlength="4" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go28" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-								<input type="hidden" name="fillerdata" value="B">
-							</form>
-					</tr>
-				</table>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#CECECE">
-				<table border="0" cellpadding="3" cellspacing="0" width="100%">
-					<tr>
-						<td width="25">
-							<table border="0" cellpadding="0" cellspacing="2" width="25">
-								<tr>
-									<td width="20" class="menunumber">28</td>
-								</tr>
-							</table>
-						</td>
-							<form action="CraneNoticeServlet" method="get" onSubmit="return verifySearch_CN(this);">
-								<td class="rightcontent" width="30%">
-									CN Number:
-								</td>
-								<td class="content">
-									<input type="text" name="allcnnumber" size="12" maxlength="6" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go29" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-					</tr>
-				</table>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#CECECE">
-				<table border="0" cellpadding="3" cellspacing="0" width="100%">
-					<tr>
-						<td width="25">
-							<table border="0" cellpadding="0" cellspacing="2" width="25">
-								<tr>
-									<td width="20" class="menunumber">29</td>
-								</tr>
-							</table>
-						</td>
-							<form action="CraneOnSiteWaiverServlet" method="get" onSubmit="return verifySearch_WD(this);">
-								<td class="rightcontent" width="30%">
-									Limited Use Number:
-								</td>
-								<td class="content">
-									<input type="text" name="onsitewaiver" size="12" maxlength="7" value="">
-								</td>
-								<td class="content" align="right"><input type="submit" name="go30" value=" GO "></td>
-								<input type="hidden" name="requestid" value="0">
-							</form>
-					</tr>
-				</table>
-				</td>
-			</tr>
+				<td class="content"><b>Vacant</b></td>
+				<td class="content">: NO</td>
 			
-			<tr>
-				<td class="content" align="right"><a href="#top">Back to top</a></td>
-			</tr>
-			<tr>
-				<td class="content">&nbsp;</td>
-			</tr>
-
+		</tr>
+		<tr valign="top">
+			<td class="content"></td>
+			<td></td>
+			<td class="content"></td>
+		</tr>
+		<tr valign="top">
+			<td class="content"></td>
+			<td></td>
+			<td class="content"></td>
+		</tr>
+		
+		<tr valign="top">
+			<td class="content" colspan=4>
+				<a href="ExpandedBlockLotInfoServlet?requestid=0&allbin=1001289&allborough=1&allnumbhous=100&allstrt=GOLD STREET&allisn=0000000477"><b>View DCP Addresses...</b></a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 
+				<a href="PropertyBrowseByBBLServlet?requestid=0&allborough=1&allblock=94"><b>Browse Block</b></a>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			<td class="content" colspan=3>&nbsp;</td>
 			
-			<!--end of checkShow if   for  Internet  -->
-
-
-<!--- ************************   Intranet Section  Start here *********************************************** -->
-
-
-
+			<td class="content" colspan=3>&nbsp;</td>
 			
-			<!--end of Intranet if --> 
-<!--
-			<tr>
-				<td bgcolor="#CECECE">
-				<table border="0" cellpadding="3" cellspacing="0" width="100%">
-					<tr>
-						<td width="25">
-							<table border="0" cellpadding="0" cellspacing="2" width="25">
-								<tr>
-									<td width="20" class="menunumber">30</td>
-								</tr>
-							</table>
-						</td>
-						<form action="JobsDumpQueryByNumberServlet" method="get" onSubmit="return verifySearchP_H(this);">
-							<td class="content" align="right">
-								(BIS Old Job Dump) Job No.: <input type="text" id="passjobnumber1" name="passjobnumber" size="12" maxlength="9" value="">&nbsp;&nbsp;
-								Doc No. (optional): <input type="text" id="passdocnumber1" name="passdocnumber" size=3 maxlength=2 value="">
-							</td>
-							<td class="content" align="right"><input type="submit" name="go31"  value=" GO "></td>
-							<input type="hidden" name="requestid" value="0">
-							<input type="hidden" name="file" value="C">
-						</form>
-					</tr>
-				</table>
-				</td>
-			</tr>
+		</tr>
+		
+		
+		<tr valign="top"><td colspan=10><hr></td></tr>
+		<tr valign="top">
+			<td class="content" colspan=2>
+			<a href="JobsQueryByLocationServlet?requestid=0&allbin=1001289&allstrt=GOLD STREET&allnumbhous=100&fillerdata=A"><b>View Zoning Documents</b></a>
+			</td>
+			<td class="content" colspan=2>
+			<a href="JobsQueryByLocationServlet?requestid=0&allbin=1001289&allstrt=GOLD STREET&allnumbhous=100&fillerdata=C"><b>View Challenge Results</b></a>
+			</td>
+			<td class="centercontent" colspan=2>
+			<a href="PreBISPACOQueryByBinServlet?requestid=0&allbin=1001289"><b>Pre - BIS PA </b></a>
+			</td>
 
-			<tr>
-				<td bgcolor="#CECECE">
-				<table border="0" cellpadding="3" cellspacing="0" width="100%">
-					<tr>
-						<td width="25">
-							<table border="0" cellpadding="0" cellspacing="2" width="25">
-								<tr>
-									<td width="20" class="menunumber">31</td>
-								</tr>
-							</table>
-						</td>
-						<form action="JB2JobDetailsServlet" method="get" onSubmit="return verifySearchP_H(this);">
-							<td class="content" align="right">
-								(New BIS JobDetail) Job No.: <input type="text" id="passjobnumber1" name="passjobnumber" size="12" maxlength="9" value="">&nbsp;&nbsp;
-								Doc No. (optional): <input type="text" id="passdocnumber1" name="passdocnumber" size="3" maxlength="2" value="">
-							</td>
-							<td class="content" align="right"><input type="submit" name="go32"  value=" GO "></td>
-							<input type="hidden" name="requestid" value="0">
-							<input type="hidden" name="file" value="C">
-						</form>
-					</tr>
-				</table>
+			<td class="rightcontent" colspan=3>
+				
+					<a href="COsByLocationServlet?requestid=0&allbin=1001289"><b>View Certificates of Occupancy</b></a>
+					
+			</td>
+		</tr>
+		
+
+		<tr valign="top"><td colspan=10><hr></td></tr>
+	</table>
+
+	<table border="0" cellpadding="1" cellspacing="1" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=150 height=1 alt=''></td><td><img src='./images/Clear.gif' width=450 height=1 alt=''></td><td><img src='./images/Clear.gif' width=150 height=1 alt=''></td></tr>
+
+		<tr>
+		
+		</tr>
+		<tr>
+		
+		</tr>
+		<tr>
+		
+		</tr>
+		
+		
+                
+
+		
+		
+
+	</table>
+
+		<table border="0" cellpadding="1" cellspacing="1" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=185 height=1 alt=''></td><td><img src='./images/Clear.gif' width=130 height=1 alt=''></td><td><img src='./images/Clear.gif' width=150 height=1 alt=''></td><td><img src='./images/Clear.gif' width=175 height=1 alt=''></td><td><img src='./images/Clear.gif' width=65 height=1 alt=''></td></tr>
+
+		<tr>
+			
+		
+		<tr>
+			<td class="content"><b>Cross Street(s):</b></td>
+			<td class="content" colspan=4>SPRUCE STREET,&nbsp;&nbsp;&nbsp;ROSE STREET</td>
+		</tr>
+		
+		<tr>
+			<td class="content"><b>DOB Special Place Name:</b></td>
+			<td class="content" colspan=3></td>
+			<td class="content">
+				
+			</td>
+		</tr>
+		<tr>
+			<td class="content"><b>DOB Building Remarks:</b></td>
+			<td class="content" colspan=4></td>
+		</tr>
+		<tr>
+			<td class="content"><b>Landmark Status:</b></td>
+			<td class="content"></td>
+			<td class="content"><b>Special Status:</b></td>
+			<td class="content" colspan=2>
+			N/A
+			</td>
+		</tr>
+		<tr>
+			<td class="content"><b>Local Law:</b></td>
+			<td class="content" >NO</td>
+			<td class="content"><b>Loft Law:</b></td>
+			<td class="content" colspan=2>NO&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="content"><b>SRO Restricted:</b></td>
+			<td class="content">NO</td>
+			<td class="content"><b>TA Restricted:</b></td>
+			<td class="content" colspan=2>NO</td>
+		</tr>
+		<tr>
+			<td class="content"><b>UB Restricted:</b></td>
+			<td class="content" colspan="3">NO</td>
+                        <!--td class="content"><b>DOT Protected Street:</b></td>
+                        <td class="content" colspan=2>Yes</td//-->
+		</tr>
+		<tr>
+			<td class="content"><b>Environmental Restrictions:</b></td>
+			<td class="content">N/A</td>
+			<td class="content"><b>Grandfathered Sign:</b></td>
+			<td class="content" colspan=2>NO</td>
+		</tr>
+		<tr>
+			<td class="content"><b>Legal Adult Use:</b></td>
+			<td class="content">NO</td>
+			<td class="content"><b>City Owned:</b></td>
+			<td class="content" colspan=2>YES</td>
+		</tr>
+		
+		
+
+		
+			
+			
+		
+
+		<!--<tr>
+			<td class="content"><b>Historic Block:</b></td>
+			<td class="content">104</td>
+			<td class="content"><b>Historic Lots:</b></td>
+			<td class="content" colspan=2>
+				35
+				
+				
+				
+			</td>
+		</tr>-->
+		<tr>
+			<td class="content"><b>Additional BINs for Building:</b></td>
+			<td class="content">
+		NONE <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> <a href="PropertyProfileOverviewServlet?requestid=0&bin=&allinquirytype=BXS2IQ70"></a> 
+			</td>
+			
+				<td class="content" colspan=3> </td>
+			
+		</tr>
+
+		
+		
+		
+				
+		<tr valign="top"><td colspan=5><hr></td></tr>
+		</table>
+
+		<table border="0" cellpadding="0" cellspacing="0" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=185 height=1 alt=''></td><td><img src='./images/Clear.gif' width=130 height=1 alt=''></td><td><img src='./images/Clear.gif' width=150 height=1 alt=''></td><td><img src='./images/Clear.gif' width=175 height=1 alt=''></td><td><img src='./images/Clear.gif' width=65 height=1 alt=''></td></tr>
+
+		   <!-- end of isIntranet  if  -->
+					<!-- internet  if  -->
+		<tr>
+			
+				<td class="content"  ><b>&nbsp;Special District: &nbsp;</b></td>
+				<td class="content" colspan=4>LM - LOWER MANHATTAN&nbsp;&nbsp; </td>
+			
+		</tr>
+		   <!-- end of 'Internet'  if  -->
+		</table>
+
+		<table border="0" cellpadding="1" cellspacing="0" width="750">
+		<tr>
+<td><img src='./images/Clear.gif' width=185 height=1 alt=''></td><td><img src='./images/Clear.gif' width=130 height=1 alt=''></td><td><img src='./images/Clear.gif' width=150 height=1 alt=''></td><td><img src='./images/Clear.gif' width=175 height=1 alt=''></td><td><img src='./images/Clear.gif' width=65 height=1 alt=''></td></tr>
+
+		<tr valign="top"><td colspan=5><hr></td></tr>
+		
+		<tr valign="top"><td class="content" colspan=5><b>This property is not located in an area that may be affected by Tidal Wetlands, Freshwater Wetlands, Coastal Erosion Hazard Area, or Special Flood Hazard Area.</b>
+		&nbsp;<a href="http://www1.nyc.gov/site/buildings/codes/wetlandsmaps.page" target="new">Click here for more information</a>
+		</td></tr>
+		
+		<tr valign="top"><td colspan=5><hr></td></tr>
+		<tr>
+			<td class="content" colspan=2 ><b>Department of Finance Building Classification:</b></td>
+			<td class="content" colspan=3>O3-OFFICE BUILDINGS</td>
+		</tr>
+
+		<tr>
+				<td class="footnote" colspan=5>&nbsp;&nbsp;&nbsp;<b>Please Note:</b>
+	The Department of Finance's building classification information shows a building's tax
+	status, which may not be the same as the legal use of the structure. To determine the
+	legal use of a structure, research the records of the Department of Buildings.
 				</td>
-			</tr>
-//-->
- 
-			<tr valign="top">
-				<td align="center">
-				<span class="content">
-					<a href="#property"><b>Property Search</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#compviol"><b>Complaints / Violations</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#application"><b>Applications</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#boiler"><b>Boiler Search</b></a>
-				</span><br>
-				<span class="content">
-					<a href="#gas"><b>Gas Service</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#power"><b>Power Authorizations</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#elevator"><b>Elevator Devices</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="#crane"><b>Cranes & Derricks</b></a>&nbsp;&nbsp;
-				</span><br>
-				<span class="content">
+		</tr>
+
+		
+	</table>
+
+	<table border="0" cellpadding="0" cellspacing="0" width="750">
+		<tr>
+			<td width="390" valign=top>
+				<table border="0" cellpadding="2" cellspacing="1" width="100%">
+					<tr>
+						<td class="colhdg">&nbsp;</td>
+						<td class="colhdg">&nbsp;&nbsp;Total&nbsp;&nbsp;</td>
+						<td class="colhdg">&nbsp;&nbsp;Open&nbsp;&nbsp;</td>
+					</tr>
+
+					<tr>
+					
+						<td class="content"><b><a href="ComplaintsByAddressServlet?requestid=0&allbin=1001289">Complaints</a></b></td>
+					
+						<td class="content" align="center">27</td>
+						<td class="content" align="center">0</td>
+					</tr>
+					<tr>
+					
+						<td class="content"><b><a href="ActionsByLocationServlet?requestid=0&allbin=1001289&allinquirytype=BXS4OCV3&stypeocv3=V">Violations-DOB</a></b></td>
+					
+						<td class="content" align="center">112</td>
+						<td class="content" align="center">3</td>
+					</tr>
+					<tr>
+					
+						<td class="content"><b><a href="ECBQueryByLocationServlet?requestid=0&allbin=1001289">Violations-ECB (DOB)</a></b></td>
+					
+						<td class="content" align="center">39</td>
+						<td class="content" align="center">2</td>
+					</tr>
 
 					
+					 <tr><td colspan=3><span class="footnote">This property has
+					 
+					 <a href="ECBWwopByLocationServlet?requestid=0&allbin=1001289"><b>1</b> open ECB </a>
+					 
+					 "Work Without A Permit" Violations and may be subject
+					 to DOB civil penalties upon application for a permit.
+					 
+					 After obtaining the permit, a certificate of correction must be filed
+					 on the ECB violations.
+					 </span></td></tr>
+					
 
-				</span>
-
-
-
-				</td>
-				</tr>
-				<tr>
-					<td class="content">&nbsp;</td>
-				</tr>
-
-			</table><!--- Closing TABLE Tag for Search Area --->
-		</td>
-	</tr>		<!--- End of Search Area --->
-</table>
-</div>
-	<br><br>
+					<tr>
+					
+						<td class="content"><a href="JobsQueryByLocationServlet?requestid=0&allbin=1001289&allstrt=GOLD STREET&allnumbhous=100"><b>Jobs/Filings</b></a></td>
+					
+						<td class="centercontent">144</td>
+					</tr>
+					<tr>
+					
+						<td class="content"><a href="JobsQueryByLocationServlet?requestid=0&allbin=1001289&allstrt=GOLD STREET&allnumbhous=100&allinquirytype=BXS2PRA3"><b>ARA / LAA Jobs</b></a></td>
+					
+						<td class="centercontent">3</td>
+					</tr>
+					<tr>
+						<td class="content"><b>Total Jobs</b></td>
+						<td class="centercontent">147</td>
+					</tr>
+					<tr>
+						
+						<td class="content"><a href="ActionsByLocationServlet?requestid=0&allbin=1001289"><b>Actions</b></a></td>
+						
+						<td class="centercontent">278</td>
+						<td>&nbsp;</td>
+					</tr>
+					
+					<tr bgcolor="#cecece">
+						<td class="content" colspan=3>
+							<form action="ActionsByLocationServlet" method="get">
+								<b>OR Enter Action Type:</b> <input type="text" size="9" class="textinput" maxlength="8" name="stypeocv3"><br>
+								<b>OR Select from List:</b>
+									<select name="stypeocv3_sel">
+										<option value="">Select...</option>
+										
+											<option value="A">A - ALTERATION</option>
+										
+											<option value="ALT">ALT - ALTERATION</option>
+										
+											<option value="B">B - BOILER</option>
+										
+											<option value="BDM">BDM - BOILER</option>
+										
+											<option value="BMD">BMD - BOILER</option>
+										
+											<option value="BN">BN - BUILDING NOTICE</option>
+										
+											<option value="BSA">BSA - BOARD OF STANDARDS &amp; </option>
+										
+											<option value="C">C - CONSTRUCTION</option>
+										
+											<option value="CA">CA - COMPUTE FLOOR LOAD</option>
+										
+											<option value="CAL">CAL - BOARD OF STANDARDS &amp; </option>
+										
+											<option value="CALC">CALC - CALENDAR # BSA</option>
+										
+											<option value="CC">CC - CURB CUT</option>
+										
+											<option value="CERT">CERT - CERTIFICATE OF OCCUPANCY</option>
+										
+											<option value="CMQ">CMQ - MARQUEE</option>
+										
+											<option value="CN">CN - CRANE</option>
+										
+											<option value="CO">CO - CERTIFICATE OF OCCUPANCY</option>
+										
+											<option value="COFO">COFO - CERTIFICATE OF OCCUPANCY</option>
+										
+											<option value="COM">COM - COMPLAINTS</option>
+										
+											<option value="COMP">COMP - COMPLAINTS</option>
+										
+											<option value="COQ">COQ - CERTIFICATE OF OCCUPANCY </option>
+										
+											<option value="CPL">CPL - CITY PLANNING</option>
+										
+											<option value="DEM">DEM - DEMOLITION</option>
+										
+											<option value="DEN">DEN - DENIED (BSA) CASE</option>
+										
+											<option value="DMSO">DMSO - LEGALIZATION OF SANDY DEM</option>
+										
+											<option value="DOC">DOC - DOCKET</option>
+										
+											<option value="DP">DP - DEMOLITION PERMIT</option>
+										
+											<option value="DP*">DP* - DEMOLITION PERMIT SIGNED </option>
+										
+											<option value="E">E - ELEVATORS</option>
+										
+											<option value="EA">EA - ELEVATOR APPLICATION</option>
+										
+											<option value="EBN">EBN - ELEVATOR BUILDING NOTICE</option>
+										
+											<option value="EGNCY">EGNCY - EMERGENCY</option>
+										
+											<option value="EIT">EIT - ELEVATOR INSPECTION TEST</option>
+										
+											<option value="EL">EL - ELEVATOR</option>
+										
+											<option value="ELEV">ELEV - ELEVATOR</option>
+										
+											<option value="ELT">ELT - ELEVATOR INSPECTION TEST</option>
+										
+											<option value="ELV">ELV - ELEVATOR</option>
+										
+											<option value="ER">ER - ELEVATOR REPORT</option>
+										
+											<option value="ES">ES - ELECTRIC SIGN</option>
+										
+											<option value="ESA">ESA - ELECTRIC SIGN APPLICATION</option>
+										
+											<option value="ET">ET - ELEVATOR SAFETY TEST</option>
+										
+											<option value="FA">FA - FIRE ALARM</option>
+										
+											<option value="FE">FE - FIRE ESCAPE</option>
+										
+											<option value="FO">FO - OIL BURNER APPLICATION</option>
+										
+											<option value="FP">FP - FIRE PROTECTION PLANS</option>
+										
+											<option value="FPP">FPP - FIRE PROTECTION PLANS</option>
+										
+											<option value="GT">GT - GAS TANK</option>
+										
+											<option value="HBLVIO">HBLVIO - HIGH PRESSURE BOILER VIOL</option>
+										
+											<option value="IMEGNCY">IMEGNCY - EMERGENCY</option>
+										
+											<option value="LANDMK">LANDMK - LANDMARK VIOLATION</option>
+										
+											<option value="LBLVIO">LBLVIO - LOW PRESSURE BOILER VIOLA</option>
+										
+											<option value="LFBD">LFBD - NON-REGISTERED INTERIM MU</option>
+										
+											<option value="LL10/80">LL10/80 - LOCAL LAW 10-1980 (FACADE</option>
+										
+											<option value="LL10/81">LL10/81 - LOCAL LAW 10-1981 (ELEVAT</option>
+										
+											<option value="LL1080">LL1080 - LOCAL LAW 10-1980 (FACADE</option>
+										
+											<option value="LL1081">LL1081 - LOCAL LAW 10-1981 (ELEVAT</option>
+										
+											<option value="LL11/98">LL11/98 - LOCAL LAW 11-1998 (FACADE</option>
+										
+											<option value="LL1198">LL1198 - LOCAL LAW 11-1998 (FACADE</option>
+										
+											<option value="LL16/84">LL16/84 - FIRE SAFETY</option>
+										
+											<option value="LL5">LL5 - LOCAL LAW 5</option>
+										
+											<option value="LL58">LL58 - FILING TO LEGALIZE WORK</option>
+										
+											<option value="LL62/91">LL62/91 - BOILER</option>
+										
+											<option value="LL6291">LL6291 - BOILER</option>
+										
+											<option value="LNO">LNO - LETTER OF NO OBJECTION</option>
+										
+											<option value="LOFT">LOFT - REGISTERED INTERIM MULT D</option>
+										
+											<option value="L1198">L1198 - LOCAL LAW 11-1998 (FACADE</option>
+										
+											<option value="MDV">MDV - MULTIPLE DWELLING VIOLATI</option>
+										
+											<option value="MIS">MIS - MISCELLANEOUS</option>
+										
+											<option value="MISC">MISC - MISCELLANEOUS</option>
+										
+											<option value="NB">NB - NEW BUILDING</option>
+										
+											<option value="NN">NN - NEW NUMBER</option>
+										
+											<option value="NRF">NRF - NO REPORT FILED</option>
+										
+											<option value="OCA">OCA - OLD CARD AWAY</option>
+										
+											<option value="OLT">OLT - OLD LAW TENEMENT</option>
+										
+											<option value="ON">ON - OLD NUMBER</option>
+										
+											<option value="P">P - PLUMBING</option>
+										
+											<option value="P&amp;D">P&amp;D - PLUMBING &amp; DRAINAGE</option>
+										
+											<option value="PA">PA - PUBLIC ASSEMBLY</option>
+										
+											<option value="PER">PER - PERMIT</option>
+										
+											<option value="PERM">PERM - PERMIT</option>
+										
+											<option value="PRA">PRA - PLUMBING REPAIR APPROVAL</option>
+										
+											<option value="PRS">PRS - PLUMBING REPAIR SLIP</option>
+										
+											<option value="RR">RR - REPAIRING REPORT</option>
+										
+											<option value="S">S - SIGN</option>
+										
+											<option value="SP">SP - SPRINKLERS</option>
+										
+											<option value="SPR">SPR - SPRINKLERS</option>
+										
+											<option value="SR">SR - SPECIAL REPORT</option>
+										
+											<option value="STP">STP - STANDPIPE</option>
+										
+											<option value="TCO">TCO - TEMPORARY C OF O</option>
+										
+											<option value="TEMP">TEMP - TEMPORARY C OF O</option>
+										
+											<option value="UB">UB - UNSAFE BUILDING</option>
+										
+											<option value="UNK">UNK - UNKNOWN</option>
+										
+											<option value="V">V - DOB VIOLATION - ACTIVE</option>
+										
+											<option value="V*">V* - DOB VIOLATION - DISMISSED</option>
+										
+											<option value="V%">V% - UB VIOLATION</option>
+										
+											<option value="VAC">VAC - VACATE - ACTIVE</option>
+										
+											<option value="VAC*">VAC* - VACATE DISMISSED</option>
+										
+											<option value="VEC">VEC - ECB VIOLATION - ACTIVE</option>
+										
+											<option value="VEC*">VEC* - ECB VIOLATION DISMISSED</option>
+										
+											<option value="VECB">VECB - ECB VIOLATION - ACTIVE</option>
+										
+											<option value="VECL">VECL - VIOLATION ECB LIEN - ACTI</option>
+										
+											<option value="VECW">VECW - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VEL*">VEL* - VIOLATION ECB LIEN DISMIS</option>
+										
+											<option value="VEW">VEW - VIOLATION WORK W/O PMT EL</option>
+										
+											<option value="VEW*">VEW* - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VEWL">VEWL - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VH">VH - VIOLATION HAZARDOUS - ACT</option>
+										
+											<option value="VH*">VH* - VIOLATION HAZARDOUS DISMI</option>
+										
+											<option value="VP">VP - VIOLATION UNSERVED ECB-AC</option>
+										
+											<option value="VP*">VP* - VIOLATION UNSERVED ECB- D</option>
+										
+											<option value="VPW">VPW - VIOLATION UNSERVED ECB-WO</option>
+										
+											<option value="VPW*">VPW* - VIOLATION UNSERVED ECB-WO</option>
+										
+											<option value="VW">VW - VIOLATION WORK WITHOUT PE</option>
+										
+											<option value="VW*">VW* - VIOLATION - WORK W/O PERM</option>
+										
+											<option value="VWH">VWH - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VWH*">VWH* - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VWL">VWL - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="VWL*">VWL* - VIOLATION WORK W/OUT PMT </option>
+										
+											<option value="W">W - WITHDRAWN</option>
+										
+											<option value="ZV">ZV - ZONING VIOLATION - ACTIVE</option>
+										
+											<option value="ZV*">ZV* - ZONING VIOLATION DISMISSE</option>
+										
+											<option value="1684NRF">1684NRF - NO REPORT FILED</option>
+										
+									</select><br>
+								<b>AND</b> <input type="submit" class="textinput" value="Show Actions"><input name="requestid" value="0" type="hidden"><input name="allbin" value="1001289" type="hidden">
+							</form>
+						</td>
+					</tr>
+					
+					
+				</table>
+			</td>
+			<td width="300" valign=top>
+				<table border="0" cellpadding="2" cellspacing="0">
+					
+					 <tr><td colspan=3><a href="ElevatorRecordsByLocationServlet?requestid=0&allbin=1001289"><b>Elevator Records</b></a></td></tr>
+					
+					 <tr><td colspan=3><a href="BECApplicationsByAddressServlet?requestid=0&allbin=1001289&clear=true"><b>Electrical Applications</b></a></td></tr>
+					
+					 <tr><td colspan=3><a href="PermitsInProcessIssuedByBinServlet?requestid=0&allbin=1001289"><b>Permits In-Process / Issued</b></a></td></tr>
+					
+					 <tr><td colspan=3><a href="IlluminatedSignsByLocationServlet?requestid=0&allbin=1001289&allborough=1&allblock=94&alllot=25"><b>Illuminated Signs Annual Permits</b></a></td></tr>
+					
+					 <tr><td colspan=2 class="content"><a href="JobsPlumbingInspectionQueryServlet?requestid=0&allbin=1001289"><b>Plumbing Inspections</b></a></td></tr>
+					
+					 <tr><td colspan=2 class="content"><a href="JobsQueryByLocationServlet?allbin=1001289&allinquirytype=BXS4PRA3&rqidpriortop=y&rqidpriortop=y&alljobtype=PLSIGN&stcodekey=PL&allborough=Y&requestid=0"><b>Open Plumbing Jobs / Work Types</b></a></td></tr>
+					
+					 <tr><td colspan=2 class="content"><a href="FacadesByLocationServlet?requestid=0&allbin=1001289"><b>Facades</b></a></td></tr>
+					
+					 <tr><td colspan=2 class="content"><a href="MarqueeQueryServlet?requestid=0&allbin=1001289"><b>Marquee Annual Permits</b></a></td></tr>
+					
+					 <tr><td colspan=3><a href="BoilerComplianceQueryServlet?requestid=0&allborough=1&stcodekey=21350&bldglokey=100&allbin=1001289"><b>Boiler Records</b></a></td></tr>
+					
+					 <tr><td colspan=3><a target="dep_rec" href="pageRedirect.jsp?requestid=0&allborough=1&stcodekey=21350&bldglokey=100&allbin=1001289&allblock=94&alllot=25&destFlag=DEP"><b>DEP Boiler Information</b></a></td></tr>
+					
+					
+					 <tr><td colspan=3><a href="CraneQueryByBinServlet?requestid=0&allborough=1&stcodekey=21350&bldglokey=100&allbin=1001289&allblock=94&alllot=25"><b>Crane Information</b></a></td></tr>
+					
+					 <tr><td colspan=3><a href="AHVPermitsQueryByNumberServlet?requestid=0&allkey=1001289&fillerdata=A"><b>After Hours Variance Permits</b></a></td></tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+		<br><br>
 	<font face="arial,helvetica" size=-1>If you have any questions please review these <a href="http://www1.nyc.gov/site/buildings/homeowner/homeowner-faqs.page">Frequently Asked Questions</a>,
 	the <a href="http://www1.nyc.gov/site/buildings/about/acronym-glossary.page">Glossary</a>, or
 	call the 311 Citizen Service Center by dialing 311 or (212) NEW YORK outside of New York City.</font>
@@ -1680,7 +789,7 @@
 			</tr>
 			<tr>
 			<td class="content" align="center">
-				<a href='bsqpm01.jsp'>BIS Menu</a>&nbsp;&nbsp;|&nbsp;&nbsp;Bldg Info Search
+				<a href='bsqpm01.jsp'>BIS Menu</a>&nbsp;&nbsp;|&nbsp;&nbsp;Property Profile
 			</td>
 			</tr>
 			<tr>
@@ -1708,6 +817,5 @@ page(document.location, document.referrer);
 </script>
 </body>
 </html>
-
 
 
