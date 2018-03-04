@@ -11,7 +11,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const buildingRouter = require('./routes/building-router');
-var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: ""};
+var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: "", userComment: ""};
 var complaintJson = {};
 var propId;
 const buildingModel = require('./models/buildingModel.js');
@@ -23,6 +23,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 // address input - scraping for basic building info from NY DOB
