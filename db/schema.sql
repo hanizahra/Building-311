@@ -12,6 +12,7 @@ CREATE TABLE buildingInfo (
 	complaints TEXT,
 	propertyId TEXT,
 	floodZone TEXT,
+	userComment TEXT,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

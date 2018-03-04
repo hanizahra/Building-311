@@ -5,13 +5,12 @@
 
 <div>
   <h2><%= message %></h2>
+  <h2><%= JSON.stringify(complaints[0].address).replace(/"/g,"").replace(/:/g,"").replace(/^\s*/gm, '') %></h2>
   <% let allComplaints = JSON.stringify(complaints[0]).replace(/"/g,"") %>
-  <p><%= allComplaints %></p>
 </div>
 
 <% for(var i=0; i<JSON.stringify(complaints.length); i++) {%>
      <tr>
-       <%= JSON.stringify(complaints[i].address).replace(/"/g,"").replace(/:/g,"").replace(/^\s*/gm, '')%> <br><br>
        <%= JSON.stringify(complaints[i].timedate).replace(/"/g,"").replace(/^\s*/gm, '')%> <br>
        <%= JSON.stringify(complaints[i].complaint).replace(/"/g,"")%> <br>
        <%= JSON.stringify(complaints[i].comment).replace(/"/g,"")%> <br>

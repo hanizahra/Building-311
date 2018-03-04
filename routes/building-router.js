@@ -21,4 +21,7 @@ buildingRouter.post('/violations', buildingController.allViolations, viewControl
 // deletes saved queries 
 buildingRouter.delete('/queries', buildingController.deleteQuery, viewController.destroyQuery, viewController.show404, viewController.show406);
 
+// add/updates user comments
+buildingRouter.put('/queries', buildingController.addUserComment, viewController.updateUserComment)
+
 module.exports = buildingRouter

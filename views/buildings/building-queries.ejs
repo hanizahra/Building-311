@@ -4,7 +4,7 @@
 
 <div>
   <h2><%= message %></h2>
-  <h3><%=  %></h3>
+  <h3><%= JSON.stringify(buildings[1]) %></h3>
 </div>
 
 <% for(var i=0; i<JSON.stringify(buildings.length); i++) {%>
@@ -33,6 +33,15 @@
 			</label>
 			<input type="submit" name="submit" value="Delete">
 		</form>
+
+
+		<form action="/buildings/queries?_method=Put" method="post">
+			<input type="submit" value="Add a comment"/> <br>
+		  	<input name="userComment" type="text" value="" /> <br>
+		  	<input name="userscomments type= "text" value="<%= JSON.stringify(buildings[i].usercomment).replace(/"/g,""); %>" readonly/> 
+		  	<input name="propertyId" type="hidden" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,"") %>" />
+		</form>
+
 
        <br><br>
      </tr>

@@ -2,7 +2,7 @@ const buildingDB = require('../models/buildingModel');
 const buildingController = {};
 
 buildingController.index = (req, res, next) => {
-		console.log('getting all basic buildings info')
+		console.log('getting all buildings basic info')
 		buildingDB.findAll()
 		.then((buildings) => {
 			// res.render('buildings/building-info', {
@@ -55,7 +55,7 @@ buildingController.allViolations = (req, res, next) => {
 	.catch((err) => {
 		res.status(500).json(err)
 	})
-}
+};
 
 buildingController.deleteQuery = (req, res, next) => {
 	propId = req.body.propId
@@ -72,6 +72,24 @@ buildingController.deleteQuery = (req, res, next) => {
 			error: err
 		})
 	})
-}
+};
+
+buildingController.addUserComment = (req, res, next) => {
+	console.log('addUserComment inside buildingController running');
+	userComment = req.body.userComment;
+	propertyId = req.body.propertyId;
+	console.log('userComment is now', userComment)
+	console.log('propertyId is now', propertyId)
+	console.log('req.body is ', req.body)
+	buildingDB.update(req.body)
+	.then((updates) => {
+		
+		res.locals.updates = updates
+		next();
+	})
+	.catch((err) => {
+		res.status(500).json(err)
+	})
+};
 
 module.exports = buildingController;

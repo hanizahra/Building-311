@@ -15,7 +15,7 @@ module.exports = {
   // },
 
   showBuildings(req, res) {
-    console.log('showBuildings in view controller running');
+    console.log('showBuildings in view controller ran');
     res.render('buildings/building-queries.ejs', {
       message: "Below are all the buildings: ",
       data: res.locals.buildings
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   showOne(req, res) {
-    console.log('showOne in view controller running');
+    console.log('showOne in view controller ran');
     res.render('buildings/building-info.ejs', {
       message: "Here is just one building: ",
       data: res.locals.building
@@ -31,15 +31,15 @@ module.exports = {
   },
 
   showComplaints(req, res) {
-    console.log('showComplaints in view controller running');
+    console.log('showComplaints in view controller ran');
     res.render('buildings/building-complaints.ejs', {
-      message: "Here are the building complaints: ",
+      message: 'Here are the building complaints for ',
       data: res.locals.complaints
     });
   },
 
   showViolations(req, res) {
-    console.log('showViolations in view controller running');
+    console.log('showViolations in view controller ran');
     res.render('buildings/building-violations.ejs', {
       message: "Here are the building violations: ",
       data: res.locals.violations
@@ -50,5 +50,14 @@ module.exports = {
     console.log('destroyQuery in view controller ran');
     res.redirect('buildings/queries');
   },
+
+  updateUserComment (req, res) {
+    console.log('updateUserComment in view controller ran');
+    res.render('buildings/building-queries', {
+      data: res.locals.updates
+    });
+    res.redirect('buildings/queries');
+  }
+
 
 };

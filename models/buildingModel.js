@@ -7,8 +7,8 @@ buildingModel.insertBuildInfo = function(json) {
 	console.log('attempting to send to database...')
 	console.log('json is: '+json)
 
-	return db.one(`INSERT INTO buildingInfo (borough, zipcode, address, numViolations, numComplaints, complaints, propertyId, floodZone) 
-					VALUES ($[borough], $[zipcode], $[address], $[numViolations], $[numComplaints], $[complaints], $[propertyId], $[floodZone])`, json);
+	return db.one(`INSERT INTO buildingInfo (borough, zipcode, address, numViolations, numComplaints, complaints, propertyId, floodZone, userComment) 
+					VALUES ($[borough], $[zipcode], $[address], $[numViolations], $[numComplaints], $[complaints], $[propertyId], $[floodZone], $[userComment])`, json);
 };	
 
 buildingModel.insertComplaintInfo = function(complaintJson) {
@@ -20,7 +20,7 @@ buildingModel.insertComplaintInfo = function(complaintJson) {
 };
 
 buildingModel.findAll = () => 
-	db.query('SELECT DISTINCT address, borough, zipcode , propertyId FROM buildingInfo');
+	db.query('SELECT DISTINCT address, borough, zipcode , propertyId , userComment FROM buildingInfo');
 
 buildingModel.findOne = () => 
 	db.query('SELECT address, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
@@ -36,7 +36,8 @@ buildingModel.destroy = (id) =>
 			DELETE FROM buildingInfo WHERE propertyId = $1;
   			DELETE FROM complaintInfo WHERE propertyId = $1;
 			COMMIT`, id)
-	// db.none('DELETE FROM buildingInfo WHERE buildingInfo.propertyId =$1', id)
 
+buildingModel.update = (comment) =>
+	db.one(`UPDATE buildingInfo SET userComment = $/userComment/ WHERE propertyId = $/propertyId/`, comment);
 
 module.exports = buildingModel
