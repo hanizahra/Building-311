@@ -41,10 +41,9 @@ CREATE TABLE violationInfo (
 	violationId TEXT,
 	violation TEXT, 
 	comment TEXT,
-	timeD TEXT,
+	timeDate TEXT,
 	status TEXT,
-	categoryCode TEXT,
-	priority TEXT,
+	violationCategory TEXT,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

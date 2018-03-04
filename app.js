@@ -78,12 +78,25 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
                     json.zipcode = zipcode;
                 });
 
+
                 $($('a[href^="ActionsByLocationServlet"]').parent().parent().parent().children()[1]).filter(function(){
                     let data = $(this);
                     numViolations = data.text();
 
                     json.numViolations = numViolations;
                 });
+
+                //tried to fix the numComplaint error on addresses like 269 Powers Brooklyn
+                //  if($('b:contains("Violations-DOB")')) {
+                //     json.numViolations = 0
+                // } else {
+                //     $($('a[href^="ActionsByLocationServlet"]').parent().parent().parent().children()[1]).filter(function(){
+                //         let data = $(this);
+                //         numViolations = data.text();
+
+                //         json.numViolations = numViolations;
+                //     });
+                // }
 
                 $($('a[href^="ComplaintsByAddressServlet"]').parent().parent().parent().children()[1]).filter(function(){
                     let data = $(this);
@@ -283,104 +296,102 @@ function vioLinkPage(){
 
 
 
-// // scraping for violation details
-// function scrapeComplaintPage(complaintLink)
-// {
-//         let json2 = {address: "", propertyId: "", complaintId: "", complaint: "", comment: "", timeDate: "", status: "", categoryCode: "", priority: ""};
-//         console.log('scrapeComplaintPage', complaintLink);
-//         let options = 
-//         {
-//             url : complaintLink,
-//             headers: 
-//             {
-//                 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
-//             }
-//         }
-//         return new Promise(function(resolve3, reject3) 
-//         {
-//             request(options, function(error, response, html) 
-//             {
-//                 // console.log('html: ', html);   
-//                 if(!error) 
-//                 {
-//                     //console.log('json2: ', json2);
-//                     console.log('scrapeComplaintPage OK');
-//                     let $ = cheerio.load(html);
+// scraping for violation details
+function scrapeViolationPage(violationLink)
+{
+        let json3 = {address: "", propertyId: "", violationId: "", violation: "", comment: "", timeDate: "", status: "", violationCategory: ""};
+        console.log('scrapeViolationPage', violationLink);
+        let options = 
+        {
+            url : violationLink,
+            headers: 
+            {
+                'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
+            }
+        }
+        return new Promise(function(resolve3, reject3) 
+        {
+            request(options, function(error, response, html) 
+            {
+                // console.log('html: ', html);   
+                if(!error) 
+                {
+                    //console.log('json3: ', json3);
+                    console.log('scrapeViolationPage OK');
+                    let $ = cheerio.load(html);
 
-//                     $('.maininfo').first().filter(function(){
-//                         let data = $(this);
-//                         address = data.text().replace(/Complaint at/g,"");            
+                    //not sure if working but think is right
+                    $('.maininfo').first().filter(function(){
+                        let data = $(this);
+                        address = data.text();           
 
-//                         json2.address = address;
-//                     });
+                        json3.address = address;
+                    });
 
+                    //not sure if working but think is right
+                    $($('a[href^="PropertyProfileOverviewServlet"]')).filter(function(){
+                        let data = $(this);
+                        let propertyId = data.text().replace(/[^0-9]/g, '');
+                        json3.propertyId = propertyId;
+                    });  
 
-//                     $($('a[href^="PropertyProfileOverviewServlet"]')).filter(function(){
-//                         let data = $(this);
-//                         let propertyId = data.text().replace(/[^0-9]/g, '');
-//                         json2.propertyId = propertyId;
-//                     });  
+                    //not sure if working but think is right
+                    $('body').children().children().children().children().eq(3).filter(function(){
+                        let data = $(this);
+                        let violationId = data.text().replace(/[^0-9]/g, '');
+                        json3.violationId = violationId;
+                    }); 
 
-//                     $('body').children().children().children().children().eq(3).filter(function(){
-//                         let data = $(this);
-//                         let complaintId = data.text().replace(/[^0-9]/g, '');
-//                         json2.complaintId = complaintId;
-//                     }); 
+                    //not sure if working but think is right
+                    $('td:contains("Violation Type:")').parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        violation = data.text().replace(/[^a-zA-Z ]/g, "");
 
-//                     $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
-//                         let data = $(this);
-//                         complaint = data.text().replace(/[^a-zA-Z ]/g, "");
+                        json3.violation = violation;
+                    });
 
-//                         json2.complaint = complaint;
-//                     });
+                    //not sure if working but think is right
+                    $('td:contains("Description:")').parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        comment = data.text();
 
-//                     $('b:contains("Comments")').parent().parent().children().eq(1).filter(function(){
-//                         let data = $(this);
-//                         comment = data.text();
+                        json3.comment = comment;
+                    });
 
-//                         json2.comment = comment;
-//                     });
+                    //not sure if working but think is right
+                    $('td:contains("Violation Category:")').parent().children().eq(1).filter(function(){
+                        let data = $(this);
+                        timeDate = data.text();
 
-//                     $('b:contains("Received")').parent().parent().children().eq(1).filter(function(){
-//                         let data = $(this);
-//                         timeDate = data.text();
+                        json3.timeDate = timeDate;
+                    });
 
-//                         json2.timeDate = timeDate;
-//                     });
+                    $('td:contains("Violation Category:")').parent().children().eq(3).filter(function(){
+                        let data = $(this);
+                        violationCategory = data.text().replace(/[^0-9]/g, '');
 
-//                     $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
-//                         let data = $(this);
-//                         categoryCode = data.text().replace(/[^0-9]/g, '');
+                        json3.violationCategory = violationCategory;
+                    });
 
-//                         json2.categoryCode = categoryCode;
-//                     });
+                    //might be repetitive
+                    // $($('center').children().children().children().eq(3)).filter(function(){
+                    //     let data = $(this);
+                    //     status = data.text().replace(/[^a-zA-Z ]/g, "").replace(/Overview for Complaint   /g,"");
 
-//                     //not working, in progress still
-//                     $('b:contains("Priority")').parent().filter(function(){
-//                         let data = $(this);
-//                         priority = data.text().replace(/Priority:/i, '').replace(/[\s]/, '').replace(/\n\t\t\t/g, '').replace(/[\s]/, '');
-
-//                         json2.priority = priority;
-//                     });
-
-//                     $($('center').children().children().children().eq(3)).filter(function(){
-//                         let data = $(this);
-//                         status = data.text().replace(/[^a-zA-Z ]/g, "").replace(/Overview for Complaint   /g,"");
-
-//                         json2.status = status;
-//                     });
+                    //     json3.status = status;
+                    // });
 
 
-//                     //console.log('json2: ', json2);
-//                     resolve3(json2); 
-//                 }
-//                 else {
-//                     console.log('second request error');
-//                     reject3();
-//                 }
-//             });
-//         });
-// }
+                    console.log('json3: ', json3);
+                    resolve3(json3); 
+                }
+                else {
+                    console.log('error in violation scrape');
+                    reject3();
+                }
+            });
+        });
+}
 
 
 
