@@ -11,8 +11,9 @@ const path = require('path');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const buildingRouter = require('./routes/building-router');
-var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, propertyId: "", floodZone: "", userComment: ""};
+var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, violations : {}, propertyId: "", floodZone: "", userComment: ""};
 var complaintJson = {};
+var violationJson = {};
 var propId;
 const buildingModel = require('./models/buildingModel.js');
 
@@ -45,7 +46,7 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
             if(!error){
                 console.log('first request ok');
                 
-               
+               // used to take a snapshot of the html page
                     fs.writeFile('newoutput.html', html, function(err) {
                       console.log('File written in project directory.');
                     }); 
@@ -90,6 +91,7 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
 
                     json.numComplaints = complaints;
                 });
+
 
                 $($('.maininfo')[2]).filter(function(){
                     let data = $(this);
@@ -244,6 +246,149 @@ function scrapeComplaintPage(complaintLink)
 }
 
 
+// scraping for violation links
+function vioLinkPage(){
+    // let binNum = encodeURIComponent('3068248');
+        let options = {
+            url: 'http://a810-bisweb.nyc.gov/bisweb/ActionsByLocationServlet?requestid=1&allbin=' + json.propertyId + '&allinquirytype=BXS4OCV3&stypeocv3=V',
+            headers: {
+                'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
+            }
+        }
+        return new Promise(function(resolve4, reject4) {
+            request(options, function(error, response, html) {
+                // console.log('html: ', html);   
+                if(!error) {
+                    console.log('json: ', json);
+                    console.log('second request ok');
+                    let $ = cheerio.load(html);
+                    $($('a[href^="ActionViolationDisplayServlet"]')).each(function(index, value){
+                        let data = $(this);                
+                        let violationId = data.text();
+                        console.log('violation', violationId);
+                        json.violations[violationId] = {link: mainUrl + value.attribs.href};
+                    });  
+                    console.log('json: ', json);
+                    resolve4(); 
+                }
+                else {
+                    console.log('second request error');
+                }
+            });
+        });
+};
+
+
+
+
+
+
+// // scraping for violation details
+// function scrapeComplaintPage(complaintLink)
+// {
+//         let json2 = {address: "", propertyId: "", complaintId: "", complaint: "", comment: "", timeDate: "", status: "", categoryCode: "", priority: ""};
+//         console.log('scrapeComplaintPage', complaintLink);
+//         let options = 
+//         {
+//             url : complaintLink,
+//             headers: 
+//             {
+//                 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
+//             }
+//         }
+//         return new Promise(function(resolve3, reject3) 
+//         {
+//             request(options, function(error, response, html) 
+//             {
+//                 // console.log('html: ', html);   
+//                 if(!error) 
+//                 {
+//                     //console.log('json2: ', json2);
+//                     console.log('scrapeComplaintPage OK');
+//                     let $ = cheerio.load(html);
+
+//                     $('.maininfo').first().filter(function(){
+//                         let data = $(this);
+//                         address = data.text().replace(/Complaint at/g,"");            
+
+//                         json2.address = address;
+//                     });
+
+
+//                     $($('a[href^="PropertyProfileOverviewServlet"]')).filter(function(){
+//                         let data = $(this);
+//                         let propertyId = data.text().replace(/[^0-9]/g, '');
+//                         json2.propertyId = propertyId;
+//                     });  
+
+//                     $('body').children().children().children().children().eq(3).filter(function(){
+//                         let data = $(this);
+//                         let complaintId = data.text().replace(/[^0-9]/g, '');
+//                         json2.complaintId = complaintId;
+//                     }); 
+
+//                     $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
+//                         let data = $(this);
+//                         complaint = data.text().replace(/[^a-zA-Z ]/g, "");
+
+//                         json2.complaint = complaint;
+//                     });
+
+//                     $('b:contains("Comments")').parent().parent().children().eq(1).filter(function(){
+//                         let data = $(this);
+//                         comment = data.text();
+
+//                         json2.comment = comment;
+//                     });
+
+//                     $('b:contains("Received")').parent().parent().children().eq(1).filter(function(){
+//                         let data = $(this);
+//                         timeDate = data.text();
+
+//                         json2.timeDate = timeDate;
+//                     });
+
+//                     $('b:contains("Category Code")').parent().parent().children().eq(1).filter(function(){
+//                         let data = $(this);
+//                         categoryCode = data.text().replace(/[^0-9]/g, '');
+
+//                         json2.categoryCode = categoryCode;
+//                     });
+
+//                     //not working, in progress still
+//                     $('b:contains("Priority")').parent().filter(function(){
+//                         let data = $(this);
+//                         priority = data.text().replace(/Priority:/i, '').replace(/[\s]/, '').replace(/\n\t\t\t/g, '').replace(/[\s]/, '');
+
+//                         json2.priority = priority;
+//                     });
+
+//                     $($('center').children().children().children().eq(3)).filter(function(){
+//                         let data = $(this);
+//                         status = data.text().replace(/[^a-zA-Z ]/g, "").replace(/Overview for Complaint   /g,"");
+
+//                         json2.status = status;
+//                     });
+
+
+//                     //console.log('json2: ', json2);
+//                     resolve3(json2); 
+//                 }
+//                 else {
+//                     console.log('second request error');
+//                     reject3();
+//                 }
+//             });
+//         });
+// }
+
+
+
+
+
+
+
+
 // writing scraping output to a JSON file in the directory
 // function writeToFile(){
 //     fs.writeFile('newoutput.json', JSON.stringify(json, null, 4), function(err) {
@@ -300,18 +445,15 @@ app.post('/scrape', function(req, res, next) {
                         innerResolve();
                     }.bind(this));
                 });
-                //return thirdPage();
+            }).then(function(stuffx) {
+                return vioLinkPage();
             }).then(function(stuff2) {
-                // writeToFile(); //outputs to JSON file in directory
-                //console.log('the json obj ->',json);
-                //buildingModel.insertBuildInfo(json);
     console.log('complaintJson:', complaintJson);
              Object.keys(complaintJson).map(function(complaintId)
              {
                 buildingModel.insertComplaintInfo(complaintJson[complaintId]);
                 buildingModel.insertBuildInfo(json);
              });
-                // res.send('Check console.');
                 res.redirect('/buildings/building');
             });
     

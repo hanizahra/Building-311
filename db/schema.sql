@@ -1,6 +1,7 @@
 \c buildings_db;
 DROP TABLE IF EXISTS buildingInfo;
 DROP TABLE IF EXISTS complaintInfo;
+DROP TABLE IF EXISTS violationInfo;
 
 CREATE TABLE buildingInfo (
 	id SERIAL PRIMARY KEY,
@@ -10,6 +11,7 @@ CREATE TABLE buildingInfo (
 	numViolations TEXT, 
 	numComplaints TEXT,
 	complaints TEXT,
+	violations TEXT,
 	propertyId TEXT,
 	floodZone TEXT,
 	userComment TEXT,
@@ -32,22 +34,20 @@ CREATE TABLE complaintInfo (
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE violationInfo (
+	id SERIAL PRIMARY KEY,
+	address TEXT,
+	propertyId TEXT,
+	violationId TEXT,
+	violation TEXT, 
+	comment TEXT,
+	timeD TEXT,
+	status TEXT,
+	categoryCode TEXT,
+	priority TEXT,
+	date_created TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
 
 
 CREATE INDEX ON buildingInfo (complaints);
-
-
-
-
-
--- addresses table 
--- -address
--- -bin number (common element to join on)
--- -number of violations
--- -number of complaints
-
-
--- complaints table
--- -bin number (common element to join on)
--- -complaint text
--- -complaint date
