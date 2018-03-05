@@ -1,33 +1,34 @@
 <% include ../partials/boilerplate.ejs %>
 
-<h1>building info page</h1>
+<div class="text-center">
+	<div>
+	<br>
+	  <h2><%= message %></h2><br>
+	  <h3><%=  %></h3>
+	</div>
 
-<div>
-  <h2><%= message %></h2>
-  <h3><%=  %></h3>
+	<% for(var i=0; i<JSON.stringify(building.length); i++) {%>
+	     <tr>
+	       <%= JSON.stringify(building[i].buildingaddress).replace(/"/g,"")%> <br>
+	       <%= JSON.stringify(building[i].borough).replace(/"/g,"")%> <br>
+	       <%= JSON.stringify(building[i].zipcode).replace(/"/g,"")%> <br><br>
+	     </tr>
+	<% } %>
+
+	<form action="/buildings/complaints" method="post">
+		<label>
+			<input type="hidden" name="propId" value="<%= JSON.stringify(building[0].propertyid).replace(/"/g,""); %>">
+		</label>
+		<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(building[0].numcomplaints).replace(/"/g," ")%>Complaints">
+	</form>
+
+	<form action="/buildings/violations" method="post">
+		<label>
+			<input type="hidden" name="propId" value="<%= JSON.stringify(building[0].propertyid).replace(/"/g,""); %>">
+		</label>
+		<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(building[0].numviolations).replace(/"/g," ")%>Violations">
+	</form>
 </div>
-
-<% for(var i=0; i<JSON.stringify(building.length); i++) {%>
-     <tr>
-       <%= JSON.stringify(building[i].address).replace(/"/g,"")%> <br>
-       <%= JSON.stringify(building[i].borough).replace(/"/g,"")%> <br>
-       <%= JSON.stringify(building[i].zipcode).replace(/"/g,"")%> <br><br>
-     </tr>
-<% } %>
-
-<form action="/buildings/complaints" method="post">
-	<label>
-		<input type="hidden" name="propId" value="<%= JSON.stringify(building[0].propertyid).replace(/"/g,""); %>">
-	</label>
-	<input type="submit" name="submit" value="<%= JSON.stringify(building[0].numcomplaints).replace(/"/g," ")%>Complaints">
-</form>
-
-<form action="/buildings/violations" method="post">
-	<label>
-		<input type="hidden" name="propId" value="<%= JSON.stringify(building[0].propertyid).replace(/"/g,""); %>">
-	</label>
-	<input type="submit" name="submit" value="<%= JSON.stringify(building[0].numviolations).replace(/"/g," ")%>Violations">
-</form>
 
 <br><br>
 

@@ -7,7 +7,7 @@ CREATE TABLE buildingInfo (
 	id SERIAL PRIMARY KEY,
 	borough TEXT,
 	zipcode TEXT,
-	address TEXT,
+	buildingAddress TEXT,
 	numViolations TEXT, 
 	numComplaints TEXT,
 	complaints TEXT,

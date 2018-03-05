@@ -1,13 +1,43 @@
 <% include ./partials/boilerplate.ejs %>
 
-<h1>Index page</h1>
 
-<div>
-  <h1>NY Building Vet</h1>
-  <h2><%= message %></h2>
-  <h3><%=  %></h3>
-</div>
-<form action="/scrape" method="post">
+
+   	<div class="masthead text-black text-center">
+      	<div class="overlay"></div>
+	      	<div class="container">
+	        	<div class="row">
+		          	<div class="col-xl-9 mx-auto">
+		            	<h1 class="mb-5" >Building 311</h1>
+		            	<p class="lead">Search your building history for complaints and violations.</p>
+		            	<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+		            			<form action="/scrape" method="post">
+
+					              	<div class="form-row">
+						                <div class="col-12 col-md-4 mb-2 mb-md-0">
+						                  <input type="text" name="houseNum" class="form-control form-control-lg" placeholder="Number...">
+						                </div>
+						                <div class="col-12 col-md-4 mb-2 mb-md-0">
+						                  <input type="text" name="houseStreet" class="form-control form-control-lg" placeholder="Street...">
+						                </div>
+						                <div class="col-12 col-md-4 mb-2 mb-md-0">
+						                  <input type="text" name="houseBoro" class="form-control form-control-lg" placeholder="Borough...">
+						                </div>
+						                <div class="col-12 col-md-3">
+						                  <button type="submit" name="submit" class="btn btn-block btn-lg btn-primary">Submit</button>
+					                	</div>
+					    			</div>
+
+
+		            			</form>
+		            	</div>		
+		          	</div>
+		        </div>
+	          
+	        </div>
+	    </div>
+    </div>
+
+   <!-- <form action="/scrape" method="post">
 	<label>
 		<input type="text" name="houseNum">
 		<p>Number</p>
@@ -21,6 +51,7 @@
 		<p>Borough</p>
 	</label>
 	<input type="submit" name="submit">
-</form><br><br>
+</form><br><br> -->
+
 
 <% include ./partials/footer.ejs %>

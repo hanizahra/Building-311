@@ -11,7 +11,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const buildingRouter = require('./routes/building-router');
-var json = { address : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, violations : {}, propertyId: "", floodZone: "", userComment: ""};
+var json = { buildingAddress : "", borough: "", zipcode: "", numViolations : "", numComplaints: 0, complaints : {}, violations : {}, propertyId: "", floodZone: "", userComment: ""};
 var complaintJson = {};
 var violationJson = {};
 var propId;
@@ -55,13 +55,13 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
                 let $ = cheerio.load(html);
                
 
-                let address, numViolations, complaints;
+                let buildingAddress, numViolations, complaints;
 
                 $('.maininfo').first().filter(function(){
                     let data = $(this);
-                    address = data.text();            
+                    buildingAddress = data.text();            
 
-                    json.address = address;
+                    json.buildingAddress = buildingAddress;
                 });
 
                 $('.maininfo').first().next().filter(function(){
@@ -320,7 +320,6 @@ function scrapeViolationPage(violationLink)
                     console.log('scrapeViolationPage OK');
                     let $ = cheerio.load(html);
 
-                    //not sure if working but think is right
                     $('.maininfo').first().filter(function(){
                         let data = $(this);
                         address = data.text();           
@@ -328,21 +327,18 @@ function scrapeViolationPage(violationLink)
                         json3.address = address;
                     });
 
-                    //not sure if working but think is right
                     $($('a[href^="PropertyProfileOverviewServlet"]')).filter(function(){
                         let data = $(this);
                         let propertyId = data.text().replace(/[^0-9]/g, '');
                         json3.propertyId = propertyId;
                     });  
 
-                    //not sure if working but think is right
                     $('body').children().children().children().children().eq(3).filter(function(){
                         let data = $(this);
                         let violationId = data.text().replace(/[^0-9]/g, '');
                         json3.violationId = violationId;
                     }); 
 
-                    //not sure if working but think is right
                     $('td:contains("Violation Type:")').parent().children().eq(1).filter(function(){
                         let data = $(this);
                         violation = data.text().replace(/[^a-zA-Z ]/g, "");
@@ -350,7 +346,6 @@ function scrapeViolationPage(violationLink)
                         json3.violation = violation;
                     });
 
-                    //not sure if working but think is right
                     $('td:contains("Description:")').parent().children().eq(1).filter(function(){
                         let data = $(this);
                         comment = data.text();
@@ -358,7 +353,6 @@ function scrapeViolationPage(violationLink)
                         json3.comment = comment;
                     });
 
-                    //not sure if working but think is right
                     $('td:contains("Violation Category:")').parent().children().eq(1).filter(function(){
                         let data = $(this);
                         timeDate = data.text();
@@ -368,7 +362,7 @@ function scrapeViolationPage(violationLink)
 
                     $('td:contains("Violation Category:")').parent().children().eq(3).filter(function(){
                         let data = $(this);
-                        violationCategory = data.text().replace(/[^0-9]/g, '');
+                        violationCategory = data.text();
 
                         json3.violationCategory = violationCategory;
                     });
@@ -458,7 +452,45 @@ app.post('/scrape', function(req, res, next) {
                 });
             }).then(function(stuffx) {
                 return vioLinkPage();
-            }).then(function(stuff2) {
+            })
+
+
+
+            .then(function(stuffy) 
+            {
+                return new Promise(function(innerResolve, innerReject)
+                {
+                    let promises = [];
+                    Object.keys(json.violations).map(function(violationId, idx)
+                    {
+                       promises.push(scrapeViolationPage(json.violations[violationId].link));
+                    }.bind(this));
+
+                    Promise.all(promises).then(function(violationObjects)
+                    {
+                        violationObjects.map(function(violationObjects)
+                        {
+                            violationJson[violationObjects.violationId] = violationObjects;
+                        }.bind(this));
+                        //console.log('violationJson', violationJson);
+                        innerResolve();
+                    }.bind(this));
+                });
+            })
+
+
+            .then(function(stuffz) {
+    console.log('violationJson:', violationJson);
+             Object.keys(violationJson).map(function(violationId)
+             {
+                buildingModel.insertViolationInfo(violationJson[violationId]);
+             });
+            })
+
+
+
+
+            .then(function(stuff2) {
     console.log('complaintJson:', complaintJson);
              Object.keys(complaintJson).map(function(complaintId)
              {

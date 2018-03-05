@@ -1,11 +1,23 @@
 <% include ../partials/boilerplate.ejs %>
 
-<h1> Building Violations </h1>
+<h1 class="text-center">Building Violations</h1>
 
 <div>
-  <h2><%= message %></h2>
-  <h3><%= JSON.stringify(violations) %></h3>
-  <p><%=  %></p>
+  <h2 class="text-center"><%= JSON.stringify(violations[0].address).replace(/"/g,"").replace(/Premises: /g,"")%></h2>
+  <% let allViolations = JSON.stringify(violations[0].address)%><br>
+</div>
+
+<div class="text-center">
+	<% for(var i=0; i<JSON.stringify(violations.length); i++) {%>
+	     <tr><hr><br>
+	       <%= JSON.stringify(violations[i].timedate).replace(/"/g,"").replace(/^\s*/gm, '')%> <br>
+	       <%= JSON.stringify(violations[i].violation).replace(/"/g,"")%> <br>
+	       <%= JSON.stringify(violations[i].comment).replace(/"/g,"")%> <br>
+	       <%= JSON.stringify(violations[i].status).replace(/"/g,"")%>
+	       <%= JSON.stringify(violations[i].violationcategory).replace(/"/g,"").replace(/\\n\\t\\t\\t /g,"").replace(/\\t/g,"")%> <br> 
+
+	     </tr> <br><br>
+	<% } %>
 </div>
 
 <% include ../partials/footer.ejs %>

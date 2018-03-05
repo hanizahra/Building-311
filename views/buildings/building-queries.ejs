@@ -1,51 +1,73 @@
 <% include ../partials/boilerplate.ejs %>
 
-<h1> Building Queries </h1>
-
-<div>
-  <h2><%= message %></h2>
-  <h3><%= JSON.stringify(buildings[1]) %></h3>
-</div>
-
-<% for(var i=0; i<JSON.stringify(buildings.length); i++) {%>
-     <tr>
-       <%= JSON.stringify(buildings[i].address).replace(/"/g,"")%> <br>
-       <%= JSON.stringify(buildings[i].borough).replace(/"/g,"")%> <br>
-       <%= JSON.stringify(buildings[i].zipcode).replace(/"/g,"")%> 
-
-       <form action="/buildings/complaints" method="post">
-			<label>
-				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
-			</label>
-			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[i].numcomplaints)%>Complaints">
-		</form>
-
-		<form action="/buildings/violations" method="post">
-			<label>
-				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
-			</label>
-			<input type="submit" name="submit" value="<%= JSON.stringify(buildings[i].numviolations) %>Violations">
-		</form>
-
-		<form action="/buildings/queries?_method=Delete"  method="post">
-			<label>
-				<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>"/>
-			</label>
-			<input type="submit" name="submit" value="Delete">
-		</form>
 
 
-		<form action="/buildings/queries?_method=Put" method="post">
-			<input type="submit" value="Add a comment"/> <br>
-		  	<input name="userComment" type="text" value="" /> <br>
-		  	<input name="userscomments type= "text" value="<%= JSON.stringify(buildings[i].usercomment).replace(/"/g,""); %>" readonly/> 
-		  	<input name="propertyId" type="hidden" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,"") %>" />
-		</form>
 
 
-       <br><br>
-     </tr>
-<% } %>
+
+
+
+   	<div class="masthead text-black text-center">
+      	<div class="overlay"></div>
+	      	<div class="container">
+	        	<div class="row">
+		          	<div class="col-xl-9 mx-auto">
+		            	<h1 class="mb-5" >Building Queries</h1>
+		            	<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+		            			
+
+
+		            		<% for(var i=0; i<JSON.stringify(buildings.length); i++) {%>
+							     <tr>
+							       <%= JSON.stringify(buildings[i].buildingaddress).replace(/"/g,"")%> <br>
+							       <%= JSON.stringify(buildings[i].borough).replace(/"/g,"")%> <br>
+							       <%= JSON.stringify(buildings[i].zipcode).replace(/"/g,"")%> 
+
+							       	<div class="w-100 p-1">
+								       <form action="/buildings/complaints" method="post" >
+											<label>
+												<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
+											</label>
+											<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(buildings[i].numcomplaints)%>Complaints">
+										</form>
+
+										<form action="/buildings/violations" method="post">
+											<label>
+												<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
+											</label>
+											<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(buildings[i].numviolations) %>Violations">
+										</form>
+
+										<form action="/buildings/queries?_method=Delete"  method="post">
+											<label>
+												<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>"/>
+											</label>
+											<input type="submit" name="submit" class="btn btn-xs  btn-primary w-25 p-1" value="Delete">
+										</form>
+
+										<form action="/buildings/queries?_method=Put" method="post">
+											<input type="submit" class="btn btn-xs btn-primary  w-25 p-1" value="Add a comment"/> <br>
+										  	<input name="userComment" type="text" value="" /> <br>
+										  	<input name="userscomments type= "text" value="<%= JSON.stringify(buildings[i].usercomment).replace(/"/g,""); %>" readonly/> 
+										  	<input name="propertyId" type="hidden" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,"") %>" />
+										</form> <br><br>
+
+									</div>
+									
+							     </tr>
+							<% } %>
+
+
+
+
+		            	</div>		
+		          	</div>
+		        </div>
+	          
+	        </div>
+	    </div>
+    </div>
+
 
 
 

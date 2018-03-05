@@ -32,12 +32,14 @@ buildingController.oneBuilding = (req, res, next) => {
 
 buildingController.allComplaints = (req, res, next) => {
 	// let propId = req.params.propId
+	console.log('buildingController.allComplaints ran');
 	console.log('what is propId', req.body.propId );
-	blah = req.body.propId
-	buildingDB.seeComplaints(blah)
+	propId = req.body.propId
+	buildingDB.seeComplaints(propId)
 	.then((complaints) => {
 		res.locals.complaints = complaints;
 		next();
+		console.log('this is res.locals.complaints in buildingController---->', res.locals.complaints);
 	})
 	.catch((err) => {
 		res.status(500).json(err)
@@ -45,12 +47,14 @@ buildingController.allComplaints = (req, res, next) => {
 };
 
 buildingController.allViolations = (req, res, next) => {
+	console.log('buildingController.allViolations ran');
 	console.log('what is propId for allViolations', req.body.propId);
 	propId = req.body.propId
 	buildingDB.seeViolations(propId)
 	.then((violations) => {
 		res.locals.violations = violations;
 		next();
+		console.log('this is res.locals.violations in buildingController---->', res.locals.violations);
 	})
 	.catch((err) => {
 		res.status(500).json(err)

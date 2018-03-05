@@ -1,24 +1,27 @@
 <% include ../partials/boilerplate.ejs %>
 
 
-<h1> Building Complaints </h1>
+<h1 class="text-center"> Building Complaints </h1>
 
 <div>
-  <h2><%= message %></h2>
-  <h2><%= JSON.stringify(complaints[0].address).replace(/"/g,"").replace(/:/g,"").replace(/^\s*/gm, '') %></h2>
-  <% let allComplaints = JSON.stringify(complaints[0]).replace(/"/g,"") %>
+  <h2><%=  %></h2>
+  <h2 class="text-center"><%= JSON.stringify(complaints[0].address).replace(/"/g,"").replace(/:/g,"").replace(/^\s*/gm, '') %></h2>
+  <% let allComplaints = JSON.stringify(complaints[0]).replace(/"/g,"") %><br>
 </div>
 
-<% for(var i=0; i<JSON.stringify(complaints.length); i++) {%>
-     <tr>
-       <%= JSON.stringify(complaints[i].timedate).replace(/"/g,"").replace(/^\s*/gm, '')%> <br>
-       <%= JSON.stringify(complaints[i].complaint).replace(/"/g,"")%> <br>
-       <%= JSON.stringify(complaints[i].comment).replace(/"/g,"")%> <br>
-       Status: <%= JSON.stringify(complaints[i].status).replace(/"/g,"")%>
-       <%= JSON.stringify(complaints[i].categoryCode)%> <br>
-       Priority: <%= JSON.stringify(complaints[i].priority).replace(/"/g,"")%> <br><br>
-     </tr> <br><br>
-<% } %>
+<div class="text-center">
+  <% for(var i=0; i<JSON.stringify(complaints.length); i++) {%>
+       <tr><hr><br>
+         <%= JSON.stringify(complaints[i].timedate).replace(/"/g,"").replace(/^\s*/gm, '')%> <br>
+         <%= JSON.stringify(complaints[i].complaint).replace(/"/g,"")%> <br>
+         <%= JSON.stringify(complaints[i].comment).replace(/"/g,"")%> <br>
+         Status: <%= JSON.stringify(complaints[i].status).replace(/"/g,"")%>
+         <%= JSON.stringify(complaints[i].categoryCode)%> <br>
+         Priority: <%= JSON.stringify(complaints[i].priority).replace(/"/g,"")%> <br>
+         User Comment: <%= JSON.stringify(complaints[i].usercomment)%>
+       </tr> <br><br>
+  <% } %>
+</div>
 
 
 <% include ../partials/footer.ejs %>

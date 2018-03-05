@@ -8,11 +8,6 @@ module.exports = {
     res.sendStatus(406);
   },
 
-  // getBuildings(req, res) {
-  //   res.render('/', {
-  //     message: "ok lets get a new building"
-  //   })
-  // },
 
   showBuildings(req, res) {
     console.log('showBuildings in view controller ran');
@@ -25,7 +20,7 @@ module.exports = {
   showOne(req, res) {
     console.log('showOne in view controller ran');
     res.render('buildings/building-info.ejs', {
-      message: "Here is just one building: ",
+      message: "Search result: ",
       data: res.locals.building
     }); 
   },
@@ -36,14 +31,16 @@ module.exports = {
       message: 'Here are the building complaints for ',
       data: res.locals.complaints
     });
+    // console.log('this is res.locals.complaints ---> ', res.locals.complaints);
   },
 
   showViolations(req, res) {
     console.log('showViolations in view controller ran');
     res.render('buildings/building-violations.ejs', {
-      message: "Here are the building violations: ",
+      message: "Here are the building violations for ",
       data: res.locals.violations
     });
+    // console.log('this is res.locals.violation ---> ', res.locals.violations);
   },
 
   destroyQuery (req, res) {
