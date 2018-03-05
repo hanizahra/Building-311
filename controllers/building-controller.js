@@ -1,4 +1,5 @@
 const buildingDB = require('../models/buildingModel');
+const viewController = require('./view-controller.js');
 const buildingController = {};
 
 buildingController.index = (req, res, next) => {
@@ -76,6 +77,8 @@ buildingController.deleteQuery = (req, res, next) => {
 			error: err
 		})
 	})
+	req.method = 'GET'
+	res.redirect('/buildings/queries')
 };
 
 buildingController.addUserComment = (req, res, next) => {
@@ -94,6 +97,9 @@ buildingController.addUserComment = (req, res, next) => {
 	.catch((err) => {
 		res.status(500).json(err)
 	})
+	// req.method = 'GET';
+	res.redirect('/buildings/queries')
+
 };
 
 module.exports = buildingController;

@@ -47,6 +47,6 @@ buildingModel.destroy = (id) =>
 			COMMIT`, id)
 
 buildingModel.update = (comment) =>
-	db.one(`UPDATE buildingInfo SET userComment = $/userComment/ WHERE propertyId = $/propertyId/`, comment);
+	db.one(`UPDATE buildingInfo SET userComment = $/userComment/ WHERE propertyId = $/propertyId/ RETURNING *`, comment);
 
 module.exports = buildingModel

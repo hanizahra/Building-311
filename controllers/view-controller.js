@@ -12,7 +12,6 @@ module.exports = {
   showBuildings(req, res) {
     console.log('showBuildings in view controller ran');
     res.render('buildings/building-queries.ejs', {
-      message: "Below are all the buildings: ",
       data: res.locals.buildings
     }); 
   },
@@ -52,7 +51,8 @@ module.exports = {
     console.log('updateUserComment in view controller ran');
     res.render('buildings/building-queries', {
       data: res.locals.updates
-    });
+    })
+    console.log('this update thing is still running -------------')
     res.redirect('buildings/queries');
   }
 
