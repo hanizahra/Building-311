@@ -28,7 +28,7 @@
 											<label>
 												<input type="hidden" name="propId" value="<%= JSON.stringify(buildings[i].propertyid).replace(/"/g,""); %>">
 											</label>
-											<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(buildings[i].numcomplaints)%>Complaints">
+											<input type="submit" name="submit" class="btn btn-xs btn-primary  w-25 p-1" value="<%= JSON.stringify(buildings[i].numcomplaints)%>Complaints" style="">
 										</form>
 
 										<form action="/buildings/violations" method="post">

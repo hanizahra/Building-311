@@ -47,12 +47,17 @@ module.exports = {
     res.redirect('buildings/queries');
   },
 
-  updateUserComment (req, res) {
+  updateUserComment (req, res, next) {
     console.log('updateUserComment in view controller ran');
     res.render('buildings/building-queries', {
       data: res.locals.updates
-    })
+
+    });next();
     console.log('this update thing is still running -------------')
+    // res.redirect('buildings/queries');
+  },
+
+  updateUserComment2 (req, res) {
     res.redirect('buildings/queries');
   }
 
