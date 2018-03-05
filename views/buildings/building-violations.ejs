@@ -1,5 +1,5 @@
 <% include ../partials/boilerplate.ejs %>
-
+<br>
 <h1 class="text-center">Building Violations</h1>
 
 <div>
@@ -14,7 +14,9 @@
 	       <%= JSON.stringify(violations[i].violation).replace(/"/g,"")%> <br>
 	       <%= JSON.stringify(violations[i].comment).replace(/"/g,"")%> <br>
 	       <%= JSON.stringify(violations[i].status).replace(/"/g,"")%>
-	       <%= JSON.stringify(violations[i].violationcategory).replace(/"/g,"").replace(/\\n\\t\\t\\t /g,"").replace(/\\t/g,"")%> <br> 
+	       <%= JSON.stringify(violations[i].violationcategory).replace(/"/g,"").replace(/\\n\\t\\t\\t /g,"").replace(/\\t/g,"")%><br> 
+	       Guest Comment: <%= JSON.stringify(violations[i].usercomment)%>
+	       <br> 
 
 	     </tr> <br><br>
 	<% } %>

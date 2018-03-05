@@ -12,7 +12,7 @@ CREATE TABLE buildingInfo (
 	numComplaints TEXT,
 	complaints TEXT,
 	violations TEXT,
-	propertyId TEXT,
+	propertyId INTEGER,
 	floodZone TEXT,
 	userComment TEXT,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
@@ -23,7 +23,7 @@ CREATE TABLE buildingInfo (
 CREATE TABLE complaintInfo (
 	id SERIAL PRIMARY KEY,
 	address TEXT,
-	propertyId TEXT,
+	propertyId INTEGER,
 	complaintId TEXT,
 	complaint TEXT, 
 	comment TEXT,
@@ -37,7 +37,7 @@ CREATE TABLE complaintInfo (
 CREATE TABLE violationInfo (
 	id SERIAL PRIMARY KEY,
 	address TEXT,
-	propertyId TEXT,
+	propertyId INTEGER,
 	violationId TEXT,
 	violation TEXT, 
 	comment TEXT,

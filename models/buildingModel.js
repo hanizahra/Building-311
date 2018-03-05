@@ -34,10 +34,10 @@ buildingModel.findOne = () =>
 	db.query('SELECT buildingAddress, borough, zipcode, numViolations, numComplaints, propertyId FROM buildingInfo ORDER BY ID DESC LIMIT 1');
 
 buildingModel.seeComplaints = (id) => 
-	db.query(`SELECT address, timeDate, complaint , comment, propertyId, status, categoryCode, priority FROM complaintInfo WHERE propertyId=$1`, id);
+	db.query(`SELECT DISTINCT address, timeDate, complaint , comment, complaintInfo.propertyId, status, categoryCode, priority, userComment FROM complaintInfo JOIN buildingInfo ON complaintInfo.propertyId = buildingInfo.propertyId WHERE complaintInfo.propertyId=$1`, id);
 
 buildingModel.seeViolations = (id) =>
-	db.query(`SELECT address, propertyId, violationId, violation, comment, timeDate, status, violationCategory FROM violationInfo WHERE propertyId=$1`, id);
+	db.query(`SELECT DISTINCT address, violationInfo.propertyId, violationId, violation, comment, timeDate, status, violationCategory, userComment FROM violationInfo JOIN buildingInfo ON violationInfo.propertyId = buildingInfo.propertyId WHERE violationInfo.propertyId=$1`, id);
 
 buildingModel.destroy = (id) =>
 	db.none(`BEGIN;

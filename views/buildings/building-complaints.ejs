@@ -1,6 +1,6 @@
 <% include ../partials/boilerplate.ejs %>
 
-
+<br>
 <h1 class="text-center"> Building Complaints </h1>
 
 <div>
@@ -18,7 +18,7 @@
          Status: <%= JSON.stringify(complaints[i].status).replace(/"/g,"")%>
          <%= JSON.stringify(complaints[i].categoryCode)%> <br>
          Priority: <%= JSON.stringify(complaints[i].priority).replace(/"/g,"")%> <br>
-         User Comment: <%= JSON.stringify(complaints[i].usercomment)%>
+         Guest Comment: <%= JSON.stringify(complaints[i].usercomment)%>
        </tr> <br><br>
   <% } %>
 </div>
