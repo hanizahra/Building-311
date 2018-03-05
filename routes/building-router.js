@@ -1,13 +1,12 @@
 const express = require('express');
 const buildingRouter = express.Router();
-
 const buildingController = require('../controllers/building-controller');
 const viewController = require('../controllers/view-controller');
 
+
+
 // show saved queries
 buildingRouter.get('/queries/', buildingController.index, viewController.showBuildings, viewController.show404, viewController.show406);
-
-// buildingRouter.post('/', buildingController.create)
 
 // show query
 buildingRouter.get('/building', buildingController.oneBuilding, viewController.showOne, viewController.show404, viewController.show406);
@@ -23,5 +22,7 @@ buildingRouter.delete('/queries', buildingController.deleteQuery, viewController
 
 // add/updates user comments
 buildingRouter.put('/queries', buildingController.addUserComment, viewController.updateUserComment, viewController.updateUserComment, viewController.show404, viewController.show406);
+
+
 
 module.exports = buildingRouter

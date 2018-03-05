@@ -36,8 +36,7 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
         let options = {
 
             url : 'http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro='+boro + "&houseno=" + houseNo + "&street=" + street,
-            headers:  
-            {
+            headers: {
                 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
             }
         }        
@@ -47,9 +46,9 @@ function firstPage(houseNum, houseStreet, houseBoro, resolve){
                 console.log('first request ok');
                 
                // used to take a snapshot of the html page
-                    fs.writeFile('newoutput.html', html, function(err) {
-                      console.log('File written in project directory.');
-                    }); 
+                    // fs.writeFile('newoutput.html', html, function(err) {
+                    //   console.log('File written in project directory.');
+                    // }); 
             
 
                 let $ = cheerio.load(html);
@@ -160,25 +159,19 @@ function secondPage(){
 
 
 // scraping for complaint details
-function scrapeComplaintPage(complaintLink)
-{
+function scrapeComplaintPage(complaintLink){
         let json2 = {address: "", propertyId: "", complaintId: "", complaint: "", comment: "", timeDate: "", status: "", categoryCode: "", priority: ""};
         console.log('scrapeComplaintPage', complaintLink);
-        let options = 
-        {
+        let options = {
             url : complaintLink,
-            headers: 
-            {
+            headers: {
                 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
             }
         }
-        return new Promise(function(resolve3, reject3) 
-        {
-            request(options, function(error, response, html) 
-            {
+        return new Promise(function(resolve3, reject3) {
+            request(options, function(error, response, html) {
                 // console.log('html: ', html);   
-                if(!error) 
-                {
+                if(!error) {
                     //console.log('json2: ', json2);
                     console.log('scrapeComplaintPage OK');
                     let $ = cheerio.load(html);
@@ -297,25 +290,19 @@ function vioLinkPage(){
 
 
 // scraping for violation details
-function scrapeViolationPage(violationLink)
-{
+function scrapeViolationPage(violationLink) {
         let json3 = {address: "", propertyId: "", violationId: "", violation: "", comment: "", timeDate: "", status: "", violationCategory: ""};
         console.log('scrapeViolationPage', violationLink);
-        let options = 
-        {
+        let options = {
             url : violationLink,
-            headers: 
-            {
+            headers: {
                 'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'
             }
         }
-        return new Promise(function(resolve3, reject3) 
-        {
-            request(options, function(error, response, html) 
-            {
+        return new Promise(function(resolve3, reject3) {
+            request(options, function(error, response, html) {
                 // console.log('html: ', html);   
-                if(!error) 
-                {
+                if(!error) {
                     //console.log('json3: ', json3);
                     console.log('scrapeViolationPage OK');
                     let $ = cheerio.load(html);
@@ -394,7 +381,7 @@ function scrapeViolationPage(violationLink)
 
 
 
-// writing scraping output to a JSON file in the directory
+// used for writing/scraping output to a JSON file in the directory
 // function writeToFile(){
 //     fs.writeFile('newoutput.json', JSON.stringify(json, null, 4), function(err) {
 //         console.log('File written. Check newoutput.json file in project directory.');
@@ -427,23 +414,18 @@ app.post('/scrape', function(req, res, next) {
         console.log('houseBoro has now been changed to', houseBoro)
             let promise = new Promise(function(resolve, reject) {
 
-               firstPage(houseNum, houseStreet, houseBoro, resolve);
+               firstPage(houseNum, houseStreet, houseBoro, resolve); // address input - scraping for basic building info from NY DOB
             }).then(function(stuff) {
-                return secondPage(); 
-            }).then(function(stuff3) 
-            {
-                return new Promise(function(innerResolve, innerReject)
-                {
+                return secondPage(); // scraping for complaint links
+            }).then(function(stuff3) {
+                return new Promise(function(innerResolve, innerReject){
                     let promises = [];
-                    Object.keys(json.complaints).map(function(complaintId, idx)
-                    {
+                    Object.keys(json.complaints).map(function(complaintId, idx){
                        promises.push(scrapeComplaintPage(json.complaints[complaintId].link));
                     }.bind(this));
 
-                    Promise.all(promises).then(function(complaintObjects)
-                    {
-                        complaintObjects.map(function(complaintObject)
-                        {
+                    Promise.all(promises).then(function(complaintObjects) {
+                        complaintObjects.map(function(complaintObject) {
                             complaintJson[complaintObject.complaintId] = complaintObject;
                         }.bind(this));
                         //console.log('complaintJson', complaintJson);
@@ -451,49 +433,30 @@ app.post('/scrape', function(req, res, next) {
                     }.bind(this));
                 });
             }).then(function(stuffx) {
-                return vioLinkPage();
-            })
-
-
-
-            .then(function(stuffy) 
-            {
-                return new Promise(function(innerResolve, innerReject)
-                {
+                return vioLinkPage(); 
+            }).then(function(stuffy) {  // violation promises
+                return new Promise(function(innerResolve, innerReject) {
                     let promises = [];
-                    Object.keys(json.violations).map(function(violationId, idx)
-                    {
+                    Object.keys(json.violations).map(function(violationId, idx) {
                        promises.push(scrapeViolationPage(json.violations[violationId].link));
                     }.bind(this));
 
-                    Promise.all(promises).then(function(violationObjects)
-                    {
-                        violationObjects.map(function(violationObjects)
-                        {
+                    Promise.all(promises).then(function(violationObjects){
+                        violationObjects.map(function(violationObjects) {
                             violationJson[violationObjects.violationId] = violationObjects;
                         }.bind(this));
                         //console.log('violationJson', violationJson);
                         innerResolve();
                     }.bind(this));
                 });
-            })
-
-
-            .then(function(stuffz) {
+            }).then(function(stuffz) {   // inputs violation data into database
     console.log('violationJson:', violationJson);
-             Object.keys(violationJson).map(function(violationId)
-             {
-                buildingModel.insertViolationInfo(violationJson[violationId]);
+             Object.keys(violationJson).map(function(violationId) {
+                buildingModel.insertViolationInfo(violationJson[violationId]); 
              });
-            })
-
-
-
-
-            .then(function(stuff2) {
+            }).then(function(stuff2) {   // inputs building and complaint data into database
     console.log('complaintJson:', complaintJson);
-             Object.keys(complaintJson).map(function(complaintId)
-             {
+             Object.keys(complaintJson).map(function(complaintId) {
                 buildingModel.insertComplaintInfo(complaintJson[complaintId]);
                 buildingModel.insertBuildInfo(json);
              });
@@ -511,14 +474,8 @@ app.use('/', (req, res) => {
     res.render('index', {
         message: "Enter a NY address",
     })
-})
+});
 
-// app.post('/', (req, res, next) => {
-//     const {houseNum, houseStreet, houseBoro} = req.body
-//     firstPage(houseNum, houseStreet, houseBoro) => {
-//         res.redirect('/buildings')
-//   }
-// })
 
 app.use(express.static('public'))
 
