@@ -1,4 +1,4 @@
-# NY-Building-Vet-CRUD
+# Building 311 - CRUD
 
 ## Proposal
 
@@ -11,22 +11,32 @@ A full stack web application where users can look up New York addresses to see t
 ### User Stories
 1. User goes to landing page, sees instruction and input field for address  
 2. User enters desired address into input field  
-3. User arrives on info page and sees data available on property  
-4. Violations and complaints have their own drop down for user to expand on click  
-5. Option to save to recent queries on click on property data page which redirects to recent query database  
-6. User has option redirect to home landing page and enter a new query, or go to recent query page  
-7. On recent query page, user has ability to delete recent queries and has option to redirect to home page  
+3. User arrives on building overview page and sees total complaints and violations, which are clickable links  
+4. Navigation to either page to check out building history  
+5. All queries are saved into the database and can be accessed through the Saved link on the navigation menu
+6. On the building queries page, options are availabe to comment (edit data objects) or delete entry  
+7. From there, user also has option redirect to home landing page and enter a new query, or go back to building query page 
 
 ### Technologies Used
 Node JS  
 Express  
 Cheerio - HTML scraping  
-Fs - JSON output from scraping  
+Fs - JSON output to assist in taking snapshots of NY html page 
 HTML  
 CSS  
 JavaScript  
   -regex with html parsing  
-SQL-POSTGRESQL  
+SQL-POSTGRESQL 
+
+### Link to Video Tour of App
+https://vimeo.com/258578705
+
+### Code Snippet
+![alt text](https://i.imgur.com/Ouxo5w4.png)
+This part of the app was by the most difficult to wrap my head around. I will go back and make it more readable in terms of argument names
+
+### Future Development
+I plan to add a function that retries the NY server a handful of times before throwing an error. It isn't always reliable as it is now so I would like to add that feature. I would also like to scrape the NY site further for more details and expand the scope of the app. 
 
 ### Timeline
 2/26 - Proposal submittal/approval, begin work. Set up server, router, basic functionality of html scraper. Setup database with tables to include JSON ouput from inital scrape (address, total of complaints and violations) and JSON output for second scrape for respective complaint and violation descriptions. From there JOIN tables  
@@ -36,6 +46,9 @@ SQL-POSTGRESQL
 3/2 - Prepare for deployment  
 3/3-4 - Continue making web app front end more user friendly and functionality is consistent  
 3/5 - Presentation  
+
+### Instructions
+
 
 ### Links and Resources
 http://www1.nyc.gov/site/buildings/index.page  
